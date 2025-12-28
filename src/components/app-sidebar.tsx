@@ -56,7 +56,7 @@ const contactItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar collapsible="none">
       <SidebarHeader>
         <div className="px-4 py-2">
           <h2 className="text-lg font-semibold">My Portfolio</h2>
