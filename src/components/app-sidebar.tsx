@@ -1,4 +1,5 @@
 import { Home, User, GraduationCap, FolderGit2, Mail, Linkedin, Github } from "lucide-react"
+import { Link } from "react-router-dom"
 import {
   Sidebar,
   SidebarContent,
@@ -15,23 +16,13 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
+    title: "About Me",
+    url: "/",
     icon: Home,
   },
   {
-    title: "Biography",
-    url: "#bio",
-    icon: User,
-  },
-  {
-    title: "Education",
-    url: "#education",
-    icon: GraduationCap,
-  },
-  {
     title: "Projects",
-    url: "#projects",
+    url: "/projects",
     icon: FolderGit2,
   },
 ]
@@ -63,17 +54,17 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+        <SidebarGroup className="px-2">
+          <SidebarGroupLabel className="px-2">Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link to={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -82,8 +73,8 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarGroup>
-          <SidebarGroupLabel>Contact Me</SidebarGroupLabel>
+        <SidebarGroup className="px-2">
+          <SidebarGroupLabel className="px-2">Contact Me</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {contactItems.map((item) => (
