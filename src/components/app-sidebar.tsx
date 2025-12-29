@@ -54,8 +54,8 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup className="px-2">
-          <SidebarGroupLabel className="px-2">Navigation</SidebarGroupLabel>
+        <SidebarGroup>
+          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -73,8 +73,8 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarGroup className="px-2">
-          <SidebarGroupLabel className="px-2">Contact Me</SidebarGroupLabel>
+        <SidebarGroup>
+          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Contact Me</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {contactItems.map((item) => (
