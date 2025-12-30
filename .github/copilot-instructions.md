@@ -47,4 +47,5 @@
   - Wait for UI changes: `mcp_chromedevtool_wait_for` can poll for specific text or state before assertions.
 - **Examples**: prefer snapshots and script evaluation for component-level checks rather than relying solely on screenshots. Use `mcp_chromedevtool_upload_file` when testing file inputs.
 
-If you want, I can add short example snippets demonstrating these calls against `index.html` or a running `vite` dev server.
+## Don't
+1. Modify files in `src/components/ui/` unless necessary for global style changes.
