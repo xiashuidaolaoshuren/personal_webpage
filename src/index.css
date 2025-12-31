@@ -1,5 +1,6 @@
 
 @import "tw-animate-css";
+@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
 
@@ -192,27 +193,25 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
-  
-  /* Sidebar width and height fixes - target the sidebar container */
+
+  /* Sidebar width and height fixes */
   .group\/sidebar-wrapper {
     --sidebar-width: 24rem;
     min-height: 100vh;
   }
-  
-  /* Target sidebar div directly */
+
+  /* Make sidebar full screen height with shadow */
   .group\/sidebar-wrapper > div:first-child {
-    width: 20rem !important;
     height: 100vh !important;
-    flex-shrink: 0;
-    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
   }
-  
+
   /* Hide scrollbar in sidebar while keeping scroll functionality */
   [data-sidebar="content"] {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
-  
+
   [data-sidebar="content"]::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
   }

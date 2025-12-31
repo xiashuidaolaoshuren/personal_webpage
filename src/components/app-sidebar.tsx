@@ -48,7 +48,7 @@ const socialLinks = [
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="none">
+    <Sidebar collapsible="none" className="shadow-lg">
       <SidebarHeader>
         <div className="flex justify-center">
           <h2 className="text-lg font-semibold">My Portfolio</h2>
@@ -57,7 +57,7 @@ export function AppSidebar() {
       
       {/* Avatar Section */}
       <div className="flex justify-center py-4">
-        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border shadow-md">
           <img 
             src="/images/avatar_placeholder.webp" 
             alt="Avatar" 
@@ -75,8 +75,8 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link to={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                      <item.icon className="text-primary"/>
+                      <span className="text-primary">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -101,11 +101,10 @@ export function AppSidebar() {
               </div>
               
               {/* Social buttons in a row */}
-              <div className="flex pt-2">
+              <div className="flex gap-4 pt-2">
                 {socialLinks.map((social) => (
                   <Button
                     key={social.name}
-                    variant="secondary"
                     size="icon"
                     asChild
                   >
@@ -115,7 +114,7 @@ export function AppSidebar() {
                       rel="noopener noreferrer"
                       title={social.name}
                     >
-                      <social.icon className="w-4 h-4" />
+                      <social.icon className="w-4 h-4 text-white" />
                     </a>
                   </Button>
                 ))}
