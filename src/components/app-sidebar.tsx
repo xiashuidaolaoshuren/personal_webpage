@@ -1,4 +1,4 @@
-import { Home, User, GraduationCap, FolderGit2, Mail, Linkedin, Github } from "lucide-react"
+import { Home, User, GraduationCap, FolderGit2, Mail, Linkedin, Github, Phone, Instagram } from "lucide-react"
 import { Link } from "react-router-dom"
 import {
   Sidebar,
@@ -12,6 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { Button } from "@/components/ui/button"
 
 // Menu items.
 const items = [
@@ -27,19 +28,19 @@ const items = [
   },
 ]
 
-const contactItems = [
+const socialLinks = [
   {
-    title: "Email",
-    url: "mailto:your.email@example.com",
-    icon: Mail,
-  },
-  {
-    title: "LinkedIn",
+    name: "LinkedIn",
     url: "https://linkedin.com/in/yourprofile",
     icon: Linkedin,
   },
   {
-    title: "GitHub",
+    name: "Instagram",
+    url: "https://instagram.com/yourprofile",
+    icon: Instagram,
+  },
+  {
+    name: "GitHub",
     url: "https://github.com/yourusername",
     icon: Github,
   },
@@ -49,10 +50,22 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="none">
       <SidebarHeader>
-        <div className="px-4 py-2">
+        <div className="flex justify-center">
           <h2 className="text-lg font-semibold">My Portfolio</h2>
         </div>
       </SidebarHeader>
+      
+      {/* Avatar Section */}
+      <div className="flex justify-center py-4">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border">
+          <img 
+            src="/images/avatar_placeholder.webp" 
+            alt="Avatar" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Navigation</SidebarGroupLabel>
@@ -71,25 +84,47 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-      </SidebarContent>
-      <SidebarFooter>
         <SidebarGroup>
           <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Contact Me</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {contactItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">
-                      <item.icon />
-                      <span>{item.title}</span>
+            <div className="px-2 space-y-3">
+              {/* Email as text */}
+              <div className="flex items-center gap-2 text-sm">
+                <Mail className="w-4 h-4" />
+                <span className="text-muted-foreground">your.email@example.com</span>
+              </div>
+              
+              {/* Phone as text */}
+              <div className="flex items-center gap-2 text-sm">
+                <Phone className="w-4 h-4" />
+                <span className="text-muted-foreground">+1 234 567 890</span>
+              </div>
+              
+              {/* Social buttons in a row */}
+              <div className="flex pt-2">
+                {socialLinks.map((social) => (
+                  <Button
+                    key={social.name}
+                    variant="secondary"
+                    size="icon"
+                    asChild
+                  >
+                    <a 
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      title={social.name}
+                    >
+                      <social.icon className="w-4 h-4" />
                     </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+                  </Button>
+                ))}
+              </div>
+            </div>
           </SidebarGroupContent>
         </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
       </SidebarFooter>
     </Sidebar>
   )
