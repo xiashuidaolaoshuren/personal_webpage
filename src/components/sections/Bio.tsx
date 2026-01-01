@@ -3,7 +3,6 @@ export function Bio() {
     <section className="py-12">
       <h2 className="text-3xl font-bold mb-6">Biography</h2>
       <div className="prose dark:prose-invert">
-        <p>Nice to meet you! 😊 </p>
         <div>
           I am SO "Felix" Chun Ning, an Artificial Intelligence student at The Chinese University of Hong Kong. 
           Originally from Shenzhen and now living in Hong Kong, I focus my research and studies on Computer Vision 
