@@ -51,7 +51,7 @@ export function AppSidebar() {
     <Sidebar collapsible="none" className="shadow-lg">
       <SidebarHeader>
         <div className="flex justify-center">
-          <h2 className="text-lg font-semibold">My Portfolio</h2>
+          <h2 className="text-lg font-semibold">Felix's Blog</h2>
         </div>
       </SidebarHeader>
       
