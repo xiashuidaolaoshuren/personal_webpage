@@ -2,11 +2,11 @@ import { ExperienceCard, type ExperienceItem } from "./ExperienceCard";
 
 const jobData: ExperienceItem[] = [
   {
-    title: "Software Engineer Intern",
-    organization: "Example Tech Corp",
-    time: "Summer 2024",
-    description: "Developed and maintained web applications using React and TypeScript. Collaborated with the backend team to integrate RESTful APIs.",
-    emblem: "/company-placeholder.png"
+    title: "Software Engineer Intern (Summer 2025)",
+    organization: "iASPEC Service Limited",
+    time: "June 2025 - August 2025",
+    description: "Conducted research and developed an AI-powered software testing platform, contributing approximately 300 commits to the codebase. Collaborated with a team of senior software engineers and assisted in the development of the platform's frontend components.",
+    emblem: "images/Emblem_of_iASPEC.png"
   }
 ];
 
