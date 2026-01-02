@@ -48,7 +48,7 @@ const socialLinks = [
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="none" className="shadow-lg">
+    <Sidebar collapsible="none" className="shadow-lg fixed top-0 left-0 h-screen">
       <SidebarHeader>
         <div className="flex justify-center">
           <h2 className="text-lg font-semibold">Felix's Blog</h2>
