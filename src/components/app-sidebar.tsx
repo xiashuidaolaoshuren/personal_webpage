@@ -31,17 +31,17 @@ const items = [
 const socialLinks = [
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/yourprofile",
+    url: "https://www.linkedin.com/in/chun-ning-so-794375379",
     icon: Linkedin,
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/yourprofile",
+    url: "https://www.instagram.com/mouseman_0919",
     icon: Instagram,
   },
   {
     name: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/xiashuidaolaoshuren",
     icon: Github,
   },
 ]
@@ -91,13 +91,13 @@ export function AppSidebar() {
               {/* Email as text */}
               <div className="flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4" />
-                <span className="text-muted-foreground">your.email@example.com</span>
+                <span className="text-muted-foreground">1155192846@link.cuhk.edu.hk</span>
               </div>
               
               {/* Phone as text */}
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4" />
-                <span className="text-muted-foreground">+1 234 567 890</span>
+                <span className="text-muted-foreground">+852 66710279</span>
               </div>
               
               {/* Social buttons in a row */}
