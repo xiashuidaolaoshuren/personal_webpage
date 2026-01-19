@@ -74,8 +74,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="mr-2 h-4 w-4" />
-                View on GitHub
+                <Github className="mr-2 h-4 w-4 text-white" />
+                <span className="text-white">View on GitHub</span>
               </a>
             </Button>
           </CardFooter>
