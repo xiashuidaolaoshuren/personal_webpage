@@ -3,28 +3,28 @@ import { ProjectCard } from "./ProjectCard";
 
 const projects: ProjectItem[] = [
   {
-    title: "Personal Portfolio",
-    status: "In Progress",
-    description: "A personal webpage built with React, Vite, and Tailwind CSS to showcase my skills and projects.",
-    repoUrl: "https://github.com/xiashuidaolaoshuren/personal_webpage",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    image: "https://placehold.co/600x400/png?text=Portfolio",
-  },
-  {
-    title: "Project Alpha",
+    title: "GTA V ALPR",
     status: "Completed",
-    description: "An innovative solution for automating daily tasks using Python scripts.",
-    repoUrl: "https://github.com/xiashuidaolaoshuren/project-alpha", // Placeholder
-    techStack: ["Python", "Automation", "Scripting"],
-    image: "https://placehold.co/600x400/png?text=Project+Alpha",
+    description: "A complete two-stage Automatic License Plate Recognition pipeline for GTA V gameplay. Features YOLOv8 detection, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/ALPR_GTAV",
+    techStack: ["Python", "YOLOv8", "PaddleOCR", "Streamlit", "PyTorch"],
+    image: "https://placehold.co/600x400/png?text=GTA+V+ALPR",
   },
   {
-    title: "Task Master",
-    status: "Maintainance",
-    description: "A task management application featuring drag-and-drop functionality.",
-    repoUrl: "https://github.com/xiashuidaolaoshuren/task-master", // Placeholder
-    techStack: ["React", "Redux", "Node.js"],
-    image: "https://placehold.co/600x400/png?text=Task+Master",
+    title: "Automatic Chord Recognition",
+    status: "Completed",
+    description: "Machine learning system for identifying musical chords from audio. Implements Random Forest and LSTM (RNN) models with custom preprocessing features using Librosa.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/AIST3110_Proj",
+    techStack: ["Python", "PyTorch", "Scikit-learn", "Librosa", "RNN"],
+    image: "https://placehold.co/600x400/png?text=Chord+Recognition",
+  },
+  {
+    title: "Hand Gesture Music Controller",
+    status: "Completed",
+    description: "Real-time hand gesture recognition system for music synthesis control. Uses MediaPipe for tracking and sends OSC signals to SuperCollider for audio generation.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/AIST_2010_Proj",
+    techStack: ["Python", "MediaPipe", "SuperCollider", "OpenCV", "OSC"],
+    image: "https://placehold.co/600x400/png?text=Gesture+Music+Controller",
   },
 ];
 
