@@ -6,7 +6,8 @@ const jobData: ExperienceItem[] = [
     organization: "iASPEC Service Limited",
     time: "June 2025 - August 2025",
     description: "Conducted research and developed an AI-powered software testing platform, contributing approximately 300 commits to the codebase. Collaborated with a team of senior software engineers and assisted in the development of the platform's frontend components.",
-    emblem: "images/Emblem_of_iASPEC.png"
+    emblem: "images/Emblem_of_iASPEC.png",
+    url: "https://www.iaspec.com/"
   }
 ];
 

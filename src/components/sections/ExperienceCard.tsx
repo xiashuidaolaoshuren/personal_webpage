@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export interface ExperienceItem {
   title: string;
@@ -11,6 +12,7 @@ export interface ExperienceItem {
   time: string;
   description: string;
   emblem?: string;
+  url?: string;
 }
 
 interface ExperienceCardProps {
@@ -18,8 +20,15 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ item }: ExperienceCardProps) {
-  return (
-    <Card>
+  const isLink = Boolean(item.url);
+
+  const cardBody = (
+    <Card
+      className={cn(
+        "transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-xl",
+        isLink && "group-hover:-translate-y-1 group-hover:shadow-xl cursor-pointer"
+      )}
+    >
       <CardHeader>
         <CardTitle className="text-xl">{item.title}</CardTitle>
         <div className="flex justify-between text-muted-foreground font-medium">
@@ -31,10 +40,10 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
         <div className="w-full md:w-1/3 flex items-center justify-center p-4">
           <div className="relative w-32 h-32 flex items-center justify-center bg-muted rounded-full text-muted-foreground text-xs text-center p-2">
             {item.emblem && !item.emblem.includes("placeholder") ? (
-              <img 
-                src={item.emblem} 
-                alt={`${item.organization} emblem`} 
-                className="max-w-full max-h-full object-contain" 
+              <img
+                src={item.emblem}
+                alt={`${item.organization} emblem`}
+                className="max-w-full max-h-full object-contain"
               />
             ) : (
               <span>Emblem</span>
@@ -42,11 +51,24 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
           </div>
         </div>
         <div className="w-full md:w-2/3">
-          <p className="leading-relaxed">
-            {item.description}
-          </p>
+          <p className="leading-relaxed">{item.description}</p>
         </div>
       </CardContent>
     </Card>
+  );
+
+  if (!isLink) {
+    return cardBody;
+  }
+
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      {cardBody}
+    </a>
   );
 }
