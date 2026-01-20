@@ -2,7 +2,7 @@ import { Projects } from "@/components/sections/Projects";
 
 export function ProjectsPage() {
   return (
-    <div className="container mx-auto px-4 max-w-4xl">
+    <div className="container mx-auto px-16 max-w-6xl">
       <Projects />
     </div>
   );
