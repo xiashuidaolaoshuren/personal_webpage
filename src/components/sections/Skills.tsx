@@ -7,6 +7,7 @@ interface SkillCategory {
 
 interface LanguageSkill {
   name: string;
+  code: string; // ISO 3166-1 alpha-2 country code
   level: number; // 1-5
 }
 
@@ -26,12 +27,12 @@ const skillCategories: SkillCategory[] = [
 ];
     
 const languages: LanguageSkill[] = [
-  { name: "English", level: 4 },
-  { name: "Mandarin", level: 5 },
-  { name: "Cantonese", level: 5 }
+  { name: "English", code: "gb", level: 4 },
+  { name: "Mandarin", code: "cn", level: 5 },
+  { name: "Cantonese", code: "hk", level: 5 }
 ];
 
-function LanguageRating({ level }: { level: number }) {
+function LanguageRating({ level }: { readonly level: number }) {
   return (
     <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((dot) => (
@@ -54,12 +55,12 @@ export function Skills() {
       <div className="grid gap-8 md:grid-cols-2">
         {/* Technical & Soft Skills */}
         <div className="space-y-8">
-          {skillCategories.map((category, index) => (
-            <div key={index}>
+          {skillCategories.map((category) => (
+            <div key={category.title}>
               <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <Badge key={skillIndex} variant="secondary" className="text-sm py-1 px-3">
+                {category.skills.map((skill) => (
+                  <Badge key={skill} variant="secondary" className="text-sm py-1 px-3">
                     {skill}
                   </Badge>
                 ))}
@@ -73,9 +74,16 @@ export function Skills() {
           <h3 className="text-xl font-semibold mb-4">Language Proficiency</h3>
           <div className="bg-card rounded-lg border p-6">
             <div className="grid gap-6">
-              {languages.map((lang, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <span className="font-medium">{lang.name}</span>
+              {languages.map((lang) => (
+                <div key={lang.name} className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={`https://flagcdn.com/${lang.code}.svg`}
+                      alt={`${lang.name} flag`}
+                      className="w-6 h-4 object-cover rounded-sm shadow-sm"
+                    />
+                    <span className="font-medium">{lang.name}</span>
+                  </div>
                   <LanguageRating level={lang.level} />
                 </div>
               ))}
