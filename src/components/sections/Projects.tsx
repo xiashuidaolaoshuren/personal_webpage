@@ -3,6 +3,22 @@ import { ProjectCard } from "./ProjectCard";
 
 const projects: ProjectItem[] = [
   {
+    title: "LLM Hallucination Mitigation (Final Year Project)",
+    status: "In Progress",
+    description: "My Final Year Project (FYP) focused on researching and implementing trainless verifier methods for detecting and mitigating hallucinations in Large Language Models (LLMs) within RAG systems.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/AIST-FYP",
+    techStack: ["Python", "PyTorch", "Transformers", "RAG", "NLI"],
+    image: "https://placehold.co/600x400/png?text=Final+Year+Project",
+  },
+  {
+    title: "AllergyGuard",
+    status: "In Progress",
+    description: "An Android application designed for travelers to scan food labels and menus. It uses on-device OCR and fuzzy string matching to identify allergens in real-time.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/allergy_guard",
+    techStack: ["Kotlin", "Android", "ML Kit", "OCR", "Room"],
+    image: "https://placehold.co/600x400/png?text=AllergyGuard",
+  },
+  {
     title: "GTA V ALPR",
     status: "Completed",
     description: "A complete two-stage Automatic License Plate Recognition pipeline for GTA V gameplay. Features YOLOv8 detection, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI.",
