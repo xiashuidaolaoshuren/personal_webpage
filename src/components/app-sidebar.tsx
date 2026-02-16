@@ -48,18 +48,18 @@ const socialLinks = [
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="none" className="shadow-lg fixed top-0 left-0 h-screen rounded- lg">
+    <Sidebar collapsible="none" className="shadow-lg fixed top-0 left-0 h-screen rounded-lg w-[19.2rem]">
       <SidebarHeader>
         <div className="flex justify-center">
-          <h2 className="text-lg font-semibold">Felix's Blog</h2>
+          <h2 className="text-xl font-semibold">Felix's Blog</h2>
         </div>
       </SidebarHeader>
       
       {/* Avatar Section */}
       <div className="flex justify-center py-4">
-        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border shadow-md">
+        <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-border shadow-md">
           <img 
-            src="/images/avatar_placeholder.webp" 
+            src="/images/avatar.png" 
             alt="Avatar" 
             className="w-full h-full object-cover"
           />
@@ -68,12 +68,12 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)] text-sm">Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className="text-base [&>svg]:size-5">
                     <Link to={item.url}>
                       <item.icon className="text-primary"/>
                       <span className="text-primary">{item.title}</span>
@@ -85,19 +85,19 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)]">Contact Me</SidebarGroupLabel>
+          <SidebarGroupLabel className="pl-[calc(0.5rem+1rem+0.5rem)] text-sm">Contact Me</SidebarGroupLabel>
           <SidebarGroupContent>
-            <div className="px-2 space-y-3">
+            <div className="px-2 space-y-4">
               {/* Email as text */}
-              <div className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4" />
-                <span className="text-muted-foreground">1155192846@link.cuhk.edu.hk</span>
+              <div className="flex items-center gap-2 text-base">
+                <Mail className="size-5" />
+                <span className="text-muted-foreground text-[15px]">1155192846@link.cuhk.edu.hk</span>
               </div>
               
               {/* Phone as text */}
-              <div className="flex items-center gap-2 text-sm">
-                <Phone className="w-4 h-4" />
-                <span className="text-muted-foreground">+852 66710279</span>
+              <div className="flex items-center gap-2 text-base">
+                <Phone className="size-5" />
+                <span className="text-muted-foreground text-[15px]">+852 66710279</span>
               </div>
               
               {/* Social buttons in a row */}
@@ -106,6 +106,7 @@ export function AppSidebar() {
                   <Button
                     key={social.name}
                     size="icon"
+                    className="size-11"
                     asChild
                   >
                     <a 
@@ -114,7 +115,7 @@ export function AppSidebar() {
                       rel="noopener noreferrer"
                       title={social.name}
                     >
-                      <social.icon className="w-4 h-4 text-white" />
+                      <social.icon className="size-5 text-white" />
                     </a>
                   </Button>
                 ))}

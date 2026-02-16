@@ -8,7 +8,7 @@ const projects: ProjectItem[] = [
     description: "A complete two-stage Automatic License Plate Recognition pipeline for GTA V gameplay. Features YOLOv8 detection, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI.",
     repoUrl: "https://github.com/xiashuidaolaoshuren/ALPR_GTAV",
     techStack: ["Python", "YOLOv8", "PaddleOCR", "Streamlit", "PyTorch"],
-    image: "https://placehold.co/600x400/png?text=GTA+V+ALPR",
+    image: "../../../images/gta_v_alpr.jpg",
   },
   {
     title: "Automatic Chord Recognition",
@@ -16,7 +16,7 @@ const projects: ProjectItem[] = [
     description: "Machine learning system for identifying musical chords from audio. Implements Random Forest and LSTM (RNN) models with custom preprocessing features using Librosa.",
     repoUrl: "https://github.com/xiashuidaolaoshuren/AIST3110_Proj",
     techStack: ["Python", "PyTorch", "Scikit-learn", "Librosa", "RNN"],
-    image: "https://placehold.co/600x400/png?text=Chord+Recognition",
+    image: "../../../images/chord_recognition.png",
   },
   {
     title: "Hand Gesture Music Controller",
