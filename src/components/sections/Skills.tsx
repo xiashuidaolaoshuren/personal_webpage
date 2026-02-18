@@ -18,16 +18,16 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Tools & Frameworks",
-    skills: ["React", "Node.js", "Tailwind CSS", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "TensorFlow"],
+    skills: ["React", "Node.js", "Tailwind CSS", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Github Copilot", "Cursor"],
   },
   {
     title: "Soft Skills",
-    skills: ["Problem Solving", "Team Collaboration", "Responsibility", "Adaptability", "Time Management", "Eager to Learn"], 
+    skills: ["Problem Solving", "Team Collaboration", "Responsibility", "Adaptability", "Time Management", "Eager to Learn", "Fast Learner", "Critical Thinking"], 
   },
 ];
     
 const languages: LanguageSkill[] = [
-  { name: "English", code: "gb", level: 4 },
+  { name: "English", code: "gb", level: 4 },  
   { name: "Mandarin", code: "cn", level: 5 },
   { name: "Cantonese", code: "hk", level: 5 }
 ];

@@ -63,7 +63,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </CardHeader>
           <CardContent className="flex-1">
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               {project.description}
             </p>
           </CardContent>
