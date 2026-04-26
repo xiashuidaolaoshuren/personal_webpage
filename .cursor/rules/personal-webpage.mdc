@@ -1,0 +1,10 @@
+---
+description: React/Vite personal site — stack, layout, and coding conventions
+alwaysApply: true
+---
+
+# Personal webpage
+
+**Canonical project instructions** are in `AGENTS.md` at the repository root. Follow that for stack, file layout, conventions, commands, and what not to edit in `src/components/ui/`.
+
+For browser-based UI testing with MCP, see `.cursor/skills/browser-ui-testing/SKILL.md`.
