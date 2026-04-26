@@ -14,11 +14,11 @@ interface LanguageSkill {
 const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "C/C++", "SQL", "HTML/CSS"],
+    skills: ["Python", "TypeScript/JavaScript", "C/C++", "SQL", "HTML/CSS", "Android Kotlin"],
   },
   {
     title: "Tools & Frameworks",
-    skills: ["React", "Node.js", "Tailwind CSS", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Github Copilot", "Cursor"],
+    skills: ["React", "Node.js", "Tailwind CSS", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Cursor"],
   },
   {
     title: "Soft Skills",
