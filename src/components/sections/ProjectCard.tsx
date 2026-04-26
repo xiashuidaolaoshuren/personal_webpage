@@ -27,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Image Section */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted md:w-1/3">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted md:w-1/3">
           {project.image ? (
             <img
               src={project.image}
