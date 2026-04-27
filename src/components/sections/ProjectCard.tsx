@@ -1,13 +1,13 @@
+import { useId } from "react";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface ProjectItem {
   title: string;
@@ -23,37 +23,64 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  return (
-    <Card className="overflow-hidden">
+  const titleId = useId();
+  const isLink = Boolean(project.repoUrl?.trim());
+
+  const cardBody = (
+    <Card
+      className={cn(
+        "overflow-hidden transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-xl",
+        isLink &&
+          "group-hover:-translate-y-1 group-hover:shadow-xl cursor-pointer"
+      )}
+    >
       <div className="flex flex-col md:flex-row">
         {/* Image Section */}
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted md:w-1/3">
           {project.image ? (
             <img
               src={project.image}
-              alt={project.title}
+              alt={isLink ? "" : project.title}
               className="h-full w-full object-contain object-center"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
-               <span className="text-muted-foreground">No Image</span>
+            <div className="flex h-full w-full items-center justify-center">
+              <span className="text-muted-foreground">No Image</span>
             </div>
           )}
         </div>
 
         {/* Content Section */}
-        <div className="w-full md:w-2/3 flex flex-col">
+        <div className="flex w-full flex-col md:w-2/3">
           <CardHeader>
-            <div className="flex justify-between items-start gap-2">
-              <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
-              <Badge
-                variant={project.status === "Completed" ? "default" : "secondary"}
+            <div className="flex items-start justify-between gap-2">
+              <CardTitle
+                id={titleId}
+                className="min-w-0 flex-1 text-xl font-bold leading-snug"
               >
-                {project.status}
-              </Badge>
+                {project.title}
+              </CardTitle>
+              <div className="flex shrink-0 items-center gap-2">
+                {isLink ? (
+                  <>
+                    <Github
+                      className="h-5 w-5 shrink-0 text-muted-foreground"
+                      aria-hidden
+                    />
+                    <span className="sr-only">GitHub repository</span>
+                  </>
+                ) : null}
+                <Badge
+                  variant={
+                    project.status === "Completed" ? "default" : "secondary"
+                  }
+                >
+                  {project.status}
+                </Badge>
+              </div>
             </div>
             {project.techStack && (
-              <div className="flex flex-wrap gap-1 mt-1">
+              <div className="mt-1 flex flex-wrap gap-1">
                 {project.techStack.map((tech) => (
                   <Badge key={tech} variant="outline" className="text-xs">
                     {tech}
@@ -63,24 +90,28 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </CardHeader>
           <CardContent className="flex-1">
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="leading-relaxed text-muted-foreground">
               {project.description}
             </p>
           </CardContent>
-          <CardFooter>
-            <Button asChild size="sm" className="w-full md:w-auto">
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="mr-2 h-4 w-4 text-white" />
-                <span className="text-white">View on GitHub</span>
-              </a>
-            </Button>
-          </CardFooter>
         </div>
       </div>
     </Card>
+  );
+
+  if (!isLink) {
+    return cardBody;
+  }
+
+  return (
+    <a
+      href={project.repoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-labelledby={titleId}
+      className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      {cardBody}
+    </a>
   );
 }
