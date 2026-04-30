@@ -42,7 +42,7 @@ const projects: ProjectItem[] = [
     description: "Real-time hand gesture recognition system for music synthesis control. Uses MediaPipe for tracking and sends OSC signals to SuperCollider for audio generation.",
     repoUrl: "https://github.com/xiashuidaolaoshuren/AIST_2010_Proj",
     techStack: ["Python", "MediaPipe", "SuperCollider", "OpenCV", "OSC"],
-    image: "../../../images/gesture_music_controller.jpg",
+    image: "../../../images/hand_gesture.jpg",
   },
 ];
 
