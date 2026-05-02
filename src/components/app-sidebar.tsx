@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Home, FolderGit2, Mail, Linkedin, Github, Phone, Instagram, Download } from "lucide-react"
 import { NavLink, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
@@ -12,6 +13,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
@@ -55,11 +57,16 @@ function isNavItemActive(pathname: string, url: string) {
 
 export function AppSidebar() {
   const location = useLocation()
+  const { setOpenMobile } = useSidebar()
+
+  React.useEffect(() => {
+    setOpenMobile(false)
+  }, [location.pathname, setOpenMobile])
 
   return (
     <Sidebar
-      collapsible="none"
-      className="sidebar-ambient fixed left-0 top-0 h-screen w-[19.2rem] rounded-lg border-r border-sidebar-border/80 shadow-lg"
+      collapsible="offcanvas"
+      className="sidebar-ambient rounded-none border-r border-sidebar-border/80 shadow-lg md:rounded-lg"
     >
       <SidebarHeader className="sidebar-header-identity border-b border-sidebar-border/70 px-4 pb-4 pt-5">
         <div className="flex flex-col items-center gap-0.5 text-center">

@@ -207,9 +207,8 @@ button:focus-visible {
     color: oklch(0.45 0.2 260);
   }
 
-  /* Sidebar width and height fixes */
+  /* Sidebar shell: height; width token comes from SidebarProvider inline style */
   .group\/sidebar-wrapper {
-    --sidebar-width: 24rem;
     min-height: 100vh;
   }
 

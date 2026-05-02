@@ -185,7 +185,7 @@ const Sidebar = React.forwardRef<
       return (
         <div
           className={cn(
-            "flex h-full w-[--sidebar-width] flex-col flex-shrink-0 bg-sidebar text-sidebar-foreground",
+            "flex h-full w-[var(--sidebar-width)] flex-col flex-shrink-0 bg-sidebar text-sidebar-foreground",
             className
           )}
           ref={ref}
@@ -193,6 +193,45 @@ const Sidebar = React.forwardRef<
         >
           {children}
         </div>
+      )
+    }
+
+    if (isMobile) {
+      const { style: propsStyle, ...restProps } = props
+      return (
+        <Sheet open={openMobile} onOpenChange={setOpenMobile}>
+          <SheetContent
+            {...restProps}
+            ref={ref}
+            data-mobile="true"
+            side={side}
+            className={cn(
+              "border-sidebar-border bg-sidebar p-0 text-sidebar-foreground shadow-lg",
+              "w-full max-w-none sm:max-w-none",
+              "[&>button]:hidden",
+              className
+            )}
+            style={
+              {
+                ...(propsStyle as React.CSSProperties),
+                width: `min(100vw - 2rem, ${SIDEBAR_WIDTH_MOBILE})`,
+              } as React.CSSProperties
+            }
+          >
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigation menu</SheetTitle>
+              <SheetDescription>
+                Site navigation, contact information, and links.
+              </SheetDescription>
+            </SheetHeader>
+            <div
+              data-sidebar="sidebar"
+              className="flex h-full max-h-[100dvh] min-h-0 w-full flex-col overflow-y-auto bg-sidebar"
+            >
+              {children}
+            </div>
+          </SheetContent>
+        </Sheet>
       )
     }
 
@@ -208,24 +247,24 @@ const Sidebar = React.forwardRef<
         {/* This is what handles the sidebar gap on desktop */}
         <div
           className={cn(
-            "relative w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear",
+            "relative w-[var(--sidebar-width)] bg-transparent transition-[width] duration-200 ease-linear",
             "group-data-[collapsible=offcanvas]:w-0",
             "group-data-[side=right]:rotate-180",
             variant === "floating" || variant === "inset"
               ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
-              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]"
+              : "group-data-[collapsible=icon]:w-[var(--sidebar-width-icon)]"
           )}
         />
         <div
           className={cn(
-            "fixed inset-y-0 z-10 flex h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear",
+            "fixed inset-y-0 z-10 flex h-svh w-[var(--sidebar-width)] transition-[left,right,width] duration-200 ease-linear",
             side === "left"
               ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
               : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
             // Adjust the padding for floating and inset variants.
             variant === "floating" || variant === "inset"
               ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
+              : "group-data-[collapsible=icon]:w-[var(--sidebar-width-icon)] group-data-[side=left]:border-r group-data-[side=right]:border-l",
             className
           )}
           {...props}
@@ -634,10 +673,13 @@ const SidebarMenuSkeleton = React.forwardRef<
     showIcon?: boolean
   }
 >(({ className, showIcon = false, ...props }, ref) => {
-  // Random width between 50 to 90%.
+  const uid = React.useId()
+  // Stable pseudo-random width between 50% and 90% from id (avoids impure Math.random in render).
   const width = React.useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`
-  }, [])
+    let n = 0
+    for (let i = 0; i < uid.length; i++) n = (n + uid.charCodeAt(i)) % 41
+    return `${50 + n}%`
+  }, [uid])
 
   return (
     <div
@@ -653,7 +695,7 @@ const SidebarMenuSkeleton = React.forwardRef<
         />
       )}
       <Skeleton
-        className="h-4 max-w-[--skeleton-width] flex-1"
+        className="h-4 max-w-[var(--skeleton-width)] flex-1"
         data-sidebar="menu-skeleton-text"
         style={
           {
@@ -743,5 +785,8 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-  useSidebar,
 }
+
+// Companion hook for SidebarProvider (shadcn/ui pattern).
+// eslint-disable-next-line react-refresh/only-export-components -- exported for menu triggers and consumers
+export { useSidebar }
