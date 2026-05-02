@@ -196,6 +196,45 @@ const Sidebar = React.forwardRef<
       )
     }
 
+    if (isMobile) {
+      const { style: propsStyle, ...restProps } = props
+      return (
+        <Sheet open={openMobile} onOpenChange={setOpenMobile}>
+          <SheetContent
+            {...restProps}
+            ref={ref}
+            data-mobile="true"
+            side={side}
+            className={cn(
+              "border-sidebar-border bg-sidebar p-0 text-sidebar-foreground shadow-lg",
+              "w-full max-w-none sm:max-w-none",
+              "[&>button]:hidden",
+              className
+            )}
+            style={
+              {
+                ...(propsStyle as React.CSSProperties),
+                width: `min(100vw - 2rem, ${SIDEBAR_WIDTH_MOBILE})`,
+              } as React.CSSProperties
+            }
+          >
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigation menu</SheetTitle>
+              <SheetDescription>
+                Site navigation, contact information, and links.
+              </SheetDescription>
+            </SheetHeader>
+            <div
+              data-sidebar="sidebar"
+              className="flex h-full max-h-[100dvh] min-h-0 w-full flex-col overflow-y-auto bg-sidebar"
+            >
+              {children}
+            </div>
+          </SheetContent>
+        </Sheet>
+      )
+    }
+
     return (
       <div
         ref={ref}
@@ -634,10 +673,13 @@ const SidebarMenuSkeleton = React.forwardRef<
     showIcon?: boolean
   }
 >(({ className, showIcon = false, ...props }, ref) => {
-  // Random width between 50 to 90%.
+  const uid = React.useId()
+  // Stable pseudo-random width between 50% and 90% from id (avoids impure Math.random in render).
   const width = React.useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`
-  }, [])
+    let n = 0
+    for (let i = 0; i < uid.length; i++) n = (n + uid.charCodeAt(i)) % 41
+    return `${50 + n}%`
+  }, [uid])
 
   return (
     <div
@@ -743,5 +785,8 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-  useSidebar,
 }
+
+// Companion hook for SidebarProvider (shadcn/ui pattern).
+// eslint-disable-next-line react-refresh/only-export-components -- exported for menu triggers and consumers
+export { useSidebar }
