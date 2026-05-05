@@ -106,7 +106,7 @@ export const PROJECTS: ProjectItem[] = [
     status: "Completed",
     image: "/images/allergy_guard.png",
     summary:
-      "CSCI3310 Android app: CameraX live scanning with ML Kit on-device text recognition and translation, length-aware fuzzy allergen matching against Room-backed profiles and synonyms, plus scan history with Maps-backed location context and offline-first translation models.",
+      "A native Android app that uses CameraX live scanning with ML Kit on-device text recognition and translation, length-aware fuzzy allergen matching against Room-backed profiles and synonyms, plus scan history with Maps-backed location context and offline-first translation models.",
     overview:
       "AllergyGuard helps people interpret ingredient lists and menus when wording, language, or layout gets in the way—especially while traveling. I built it as a native Kotlin app using MVVM so UI, state, and data stay separated. The core loop captures camera frames, recognizes multi-script text with ML Kit, optionally translates non-English content into English for matching, then highlights likely allergens with immediate on-screen feedback—all without sending frames to my own backend, which was an intentional privacy and reliability choice over a thin-client architecture.",
     problem:
@@ -154,7 +154,7 @@ export const PROJECTS: ProjectItem[] = [
     status: "Completed",
     image: "/images/gta_v_alpr-1.jpg",
     summary:
-      "AIST4010 final project: a real-time ALPR stack on GTA V gameplay video—YOLOv8 plate detection fine-tuned on my in-domain annotations, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI—with clear gains from synthetic-data fine-tuning over a real-world pretrained baseline.",
+      "A real-time ALPR stack on GTA V gameplay video—YOLOv8 plate detection fine-tuned on my in-domain annotations, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI—with clear gains from synthetic-data fine-tuning over a real-world pretrained baseline.",
     overview:
       "I developed and evaluated an Automatic License Plate Recognition system aimed at Grand Theft Auto V footage as a controlled stand-in for urban traffic: stylized rendering, full day–night and weather variation, and repeatable capture make the game a practical sandbox for perception experiments and for thinking about sim-to-real transfer. The design is a modular two-stage pipeline—detect plates, read characters—extended with tracking so OCR is not rerun blindly every frame, wrapped in a Streamlit interface for demos. Conceptually the work sits alongside industry use of large-scale simulation; here the contribution is an end-to-end student-scale pipeline with rigorous annotation and before/after detection metrics on my own GTA V dataset.",
     problem:
