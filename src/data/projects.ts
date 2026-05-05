@@ -200,33 +200,53 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: "hand-gesture-music-controller",
-    title: "Hand Gesture Music Controller",
+    title: "Sound Synthesis Using Computer Vision",
     status: "Completed",
-    image: "/images/hand_gesture.jpg",
+    image: "/images/hand_gesture-1.jpg",
     summary:
-      "Real-time gesture recognition controlling music synthesis via MediaPipe tracking and OSC messages to SuperCollider.",
+      "Group project: we train a hand-gesture recognizer in Python (MediaPipe landmarks, scikit-learn, Joblib), stream parameters over OSC, and drive real-time synthesis in SuperCollider—including continuous pitch, discrete MIDI-style notes, and a layered composing mode.",
     overview:
-      "Bridges pose estimation with creative coding: gestures become performance controls rather than discrete UI commands.",
+      "As a group project for AIST2010: Introduction to Computer Music, we built a program that couples computer vision with SuperCollider so performers can shape sound without a conventional controller. Python handles capture, landmark extraction, gesture classification, and OSC messaging; SuperCollider handles real-time instruments and buffers. The system offers three modes: continuous frequency control, discrete MIDI-note mapping (pitch classes tied to the same hand pose), and a composing mode where short recordings are stacked and looped. We were motivated by expressive hardware-software hybrids such as ROLI Airwave and browser-scale instruments like Google’s Instrument Playground—our aim was to explore the same “gesture as instrument” idea with a stack we could fully program ourselves.",
     problem:
-      "Musicians benefit from expressive, low-latency control paths. The challenge is stable tracking, meaningful gesture-to-parameter mapping, and reliable messaging to the audio engine.",
+      "Gesture-driven music needs stable perception in live video, a clear mapping from body state to musical parameters, and a low-latency path into an audio engine. We had to choose landmark features that survive jitter, turn them into reliable gesture labels, and translate continuous hand motion—especially vertical position—into pitch while still supporting discrete note choices and a separate performance mode for layering ideas. Bridging two runtimes (Python and SuperCollider) adds integration risk: OSC must stay predictable so synthesis never falls out of sync with vision.",
     approach:
-      "Used MediaPipe for hand landmarks, OpenCV for capture hygiene, and OSC as a lightweight bridge into SuperCollider for sound synthesis experiments.",
+      "We capture frames with OpenCV, detect hands with MediaPipe’s 21-point model, record landmark coordinates for each gesture class, and train a supervised scikit-learn classifier; the serialized model is loaded at runtime with Joblib (the coursework submission emphasized the deployed pipeline rather than shipping training scripts). Recognized gestures and geometry feed a Python OSC client to localhost SuperCollider servers that implement our synths and buffers. For pitch, we track the metacarpophalangeal (MCP) joint of the middle finger so vertical motion maps cleanly while an open palm plays and a closed palm effectively mutes by sending near-zero frequency. Continuous mode drives oscillators directly; sampled material such as our hand-flute-style instrument shifts perceived pitch by adjusting playback rate after we measured source pitch with Sonic Visualiser. Discrete mode maps height to MIDI-style note indices using the usual twelve-tone frequency relationship. Composing mode layers recordings on a stack-inspired structure in SuperCollider until a fist gesture triggers the stop logic described in our report.",
     features: [
-      "Real-time hand landmark streaming",
-      "OSC control mapping into SuperCollider",
-      "Modular pipeline for trying new gestures",
+      "Three modes: continuous frequency, discrete MIDI-note pitch selection, and composing with stacked / looped recordings",
+      "Gesture pipeline: MediaPipe landmarks → labeled dataset → scikit-learn classifier → Joblib-loaded model at inference time",
+      "Pitch and mute mapping using the middle-finger MCP joint’s vertical position; closed palm silences output",
+      "OSC over localhost between Python and SuperCollider for parameter updates",
+      "SuperCollider synthesis paths including sine-based generators and sampled instruments controlled via playback rate",
+      "Composing mode with buffer stacking and a fist gesture to stop playback per our SuperCollider design",
+      "GUI for choosing modes and instruments during performance (shared implementation across the group)",
     ],
     results:
-      "A playable interaction loop demonstrating CV-to-audio integration suitable for demos and iterative performance tweaks.",
+      "This was my first project involving machine learning and computer vision. My group shipped an end-to-end demo loop that proved gesture recognition can steer serious sound design. Along the way we deepened our applied computer vision practice—landmarks, labeling discipline, and deploying a sklearn model—and contrasted that with building expressive SuperCollider instruments rather than only editing audio offline. Wiring OSC forced us to think in contracts: which parameters cross the language boundary, and how often. Collaborating across CV, synthesis, and interface layers mirrored how interactive music projects tend to split expertise. More broadly, the project reinforced our belief that tightly integrating engineering and musicianship will keep shaping how people perform and prototype sound.",
     evidence: [
       {
-        src: "/images/hand_gesture.jpg",
-        alt: "Hand gesture music controller",
-        caption: "Gesture-driven control",
+        src: "/images/hand_gesture-1.jpg",
+        alt: "Camera-driven hand gesture interaction with the music controller",
+        caption:
+          "Live capture path: hand pose from the camera feeds gesture logic before parameters reach SuperCollider.",
+      },
+      {
+        src: "/images/hand_gesture-2.png",
+        alt: "Mediapipe hand landmarks",
+        caption:
+          "Mediapipe hand landmarks.",
       },
     ],
     repoUrl: "https://github.com/xiashuidaolaoshuren/AIST_2010_Proj",
-    techStack: ["Python", "MediaPipe", "SuperCollider", "OpenCV", "OSC"],
+    techStack: [
+      "Python",
+      "OpenCV",
+      "MediaPipe",
+      "NumPy",
+      "scikit-learn",
+      "Joblib",
+      "Python OSC",
+      "SuperCollider",
+    ],
   },
 ];
 
