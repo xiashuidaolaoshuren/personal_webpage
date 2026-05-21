@@ -13,7 +13,7 @@ export interface ExperienceLocation {
    * (e.g. institution name with correct casing).
    */
   mapQuery?: string;
-  /** Optional precise pin; takes precedence over `mapQuery` / `address` in the embed. */
+  /** Optional precise pin; used only when `mapQuery` is not set. */
   lat?: number;
   lng?: number;
   /** Map zoom level for Google Embed API (default 15 on the detail page). */
@@ -22,10 +22,18 @@ export interface ExperienceLocation {
 
 /** Resolves the `q` parameter for Google Maps Embed API. */
 export function resolveMapEmbedQuery(location: ExperienceLocation): string {
+  if (location.mapQuery) return location.mapQuery;
   if (location.lat != null && location.lng != null) {
     return `${location.lat},${location.lng}`;
   }
-  return location.mapQuery ?? location.address;
+  return location.address;
+}
+
+export interface ExperienceGalleryItem {
+  /** Path under `public/` (e.g. `/images/tmms-1.jpg`). */
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 export interface ExperienceItem {
@@ -53,6 +61,8 @@ export interface ExperienceItem {
   /** Institute or organization website (used on detail page). */
   url?: string;
   location?: ExperienceLocation;
+  /** Optional institute photos on the detail page gallery. */
+  gallery?: ExperienceGalleryItem[];
 }
 
 export const JOB_EXPERIENCES: ExperienceItem[] = [
@@ -79,9 +89,7 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
       address:
         "Room 511, 5/F, Lakeside I, Phase II, Hong Kong Science Park, Shatin, Hong Kong",
       mapQuery:
-        "iASPEC Service Limited, Suite 511, Lakeside 1, 8 Science Park West Avenue, Hong Kong Science Park, Shatin, Hong Kong",
-      lat: 22.426009,
-      lng: 114.211387,
+        "iASPEC Service Limited, Lakeside 1, Hong Kong Science Park, Shatin, Hong Kong",
       zoom: 18,
     },
   },
@@ -153,11 +161,31 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     location: {
       address: "1 Ching Shing Road, Sheung Shui, North District, Hong Kong",
       mapQuery:
-        "Tsang Mui Millennium School, 1 Tsing Shing Road, Sheung Shui, North District, Hong Kong",
-      lat: 22.4940034,
-      lng: 114.1250423,
+        "Tsang Mui Millennium School, 1 Ching Shing Road, Sheung Shui, North District, Hong Kong",
       zoom: 17,
     },
+    gallery: [
+      {
+        src: "/images/tmms-1.jpg",
+        alt: "Tsang Mui Millennium School campus",
+        caption: "School campus, the campus is very neat and clean.",
+      },
+      {
+        src: "/images/tmms-2.jpg",
+        alt: "Tsang Mui Millennium School building exterior",
+        caption: "Main hall, responsible for hosting the school's events.",
+      },
+      {
+        src: "/images/tmms-3.jpg",
+        alt: "Tsang Mui Millennium School grounds",
+        caption: "School grounds, I spend most of my time here during recess.",
+      },
+      {
+        src: "/images/tmms-4.jpg",
+        alt: "Tsang Mui Millennium School facilities",
+        caption: "The 'Stone of Tsang Mui', with teacher and students. The teacher in the gallery is my class teacher in P.1..",
+      },
+    ],
   },
 ];
 

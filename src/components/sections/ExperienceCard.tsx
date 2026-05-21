@@ -1,3 +1,4 @@
+import { useId } from "react";
 import {
   Card,
   CardContent,
@@ -6,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import type { ExperienceItem } from "@/data/experience";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export type { ExperienceItem } from "@/data/experience";
@@ -15,6 +17,7 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ item }: ExperienceCardProps) {
+  const titleId = useId();
   const isClickable = Boolean(item.id);
 
   const cardBody = (
@@ -27,7 +30,20 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
       )}
     >
       <CardHeader>
-        <CardTitle className="text-xl">{item.title}</CardTitle>
+        <div className="flex items-start justify-between gap-2">
+          <CardTitle id={titleId} className="min-w-0 flex-1 text-xl">
+            {item.title}
+          </CardTitle>
+          {isClickable ? (
+            <div className="flex shrink-0 items-center gap-2">
+              <ArrowRight
+                className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                aria-hidden
+              />
+              <span className="sr-only">View experience details</span>
+            </div>
+          ) : null}
+        </div>
         <div className="flex justify-between gap-4 text-muted-foreground font-medium">
           <span className="min-w-0">{item.organization}</span>
           <span className="shrink-0">{item.time}</span>
@@ -63,6 +79,7 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
   return (
     <Link
       to={`/experience/${item.id}`}
+      aria-labelledby={titleId}
       className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       {cardBody}

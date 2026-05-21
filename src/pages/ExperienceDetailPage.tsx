@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { MediaGalleryGrid } from "@/components/MediaGalleryGrid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getExperienceById, resolveMapEmbedQuery } from "@/data/experience";
@@ -209,6 +210,14 @@ export function ExperienceDetailPage() {
                 </div>
               </div>
             </section>
+          ) : null}
+
+          {experience.gallery && experience.gallery.length > 0 ? (
+            <MediaGalleryGrid
+              title="Gallery"
+              items={experience.gallery}
+              delayClass="delay-200"
+            />
           ) : null}
 
           <div
