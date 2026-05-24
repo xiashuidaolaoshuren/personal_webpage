@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ContentBlocks } from "@/components/ContentBlocks";
 import { MediaGalleryGrid } from "@/components/MediaGalleryGrid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -100,12 +101,10 @@ export function ExperienceDetailPage() {
   const mapZoom = experience.location?.zoom ?? 15;
 
   const aboutTitle = `About ${experience.organization}`;
-  const contributionsTitle =
-    experience.kind === "job" ? "What I did" : "My focus";
-  const hasContributionBullets =
-    Boolean(experience.details && experience.details.length > 0);
-  const showContributionsSection =
-    Boolean(experience.contributionsIntro) || hasContributionBullets;
+  const contributionsTitle = `What I did at ${experience.organization}`;
+  const showContributionsSection = Boolean(
+    experience.contributionsContent?.length
+  );
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
@@ -172,16 +171,7 @@ export function ExperienceDetailPage() {
 
           {showContributionsSection ? (
             <DetailSection title={contributionsTitle} delayClass="delay-100">
-              {experience.contributionsIntro ? (
-                <p className="mb-4">{experience.contributionsIntro}</p>
-              ) : null}
-              {hasContributionBullets ? (
-                <ul className="list-inside list-disc space-y-2 marker:text-primary/70">
-                  {(experience.details ?? []).map((line, index) => (
-                    <li key={index}>{line}</li>
-                  ))}
-                </ul>
-              ) : null}
+              <ContentBlocks blocks={experience.contributionsContent ?? []} />
             </DetailSection>
           ) : null}
 
