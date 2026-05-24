@@ -139,15 +139,42 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     institutionOverview:
       "S.K.H. Chan Young Secondary School is a secondary school under the Anglican (Sheng Kung Hui) family of schools in Hong Kong. Its campus address on record is 6 Chi Cheong Road, Sheung Shui, New Territories.\n\nThe school presents itself as English-medium oriented and participates in broader EMI-school activities—for example student showcases tied to the Association of English Medium Secondary Schools appear among recent news items on the official website.\n\nBeyond languages, public communications emphasize STEM-linked engagement (including ICT-oriented experiences and STEAM-team competitions), careers and life-planning structures, student organisations, and overseas-style learning journeys alongside core HKDSE-facing curriculum.",
     cardSummary:
-      "Six years of secondary study with Physics, Chemistry, and ICT electives as preparation for engineering.",
+      "Six years with Physics, Chemistry, and ICT electives; two quadcopter championships (2017–2018); DSE Best Five score of 26, ranked 4th in the graduating cohort.",
     contributionsContent: [
+      {
+        type: "paragraph",
+        text: "I spent six years at S.K.H. Chan Young Secondary School from 2016 to 2022, studying in an English-medium environment in North District, Hong Kong. For the HKDSE, I took Chemistry, Physics, and ICT as my electives to build a stronger STEM foundation ahead of university engineering study.",
+      },
+      {
+        type: "paragraph",
+        text: "In Form 6, I served as treasurer of my class committee, helping manage class funds and supporting day-to-day coordination for my cohort.",
+      },
+      {
+        type: "paragraph",
+        text: "Outside the classroom, I joined the school remote-control model team. In 2017 and 2018, I won the quadcopter time-trial category at the Guangzhou–Hong Kong–Macau Youth Technology & Sports Model Summer Camp and Triathlon Invitational (穗港澳青少年科技体育模型夏令营暨海陆空模型铁人三项邀请赛), taking the championship in both years.",
+      },
+      {
+        type: "paragraph",
+        text: "Academic results:",
+      },
       {
         type: "bullets",
         items: [
-          "Selected Physics, Chemistry, and ICT electives to strengthen STEM foundations.",
-          "Completed secondary education in an English-medium environment in North District, Hong Kong.",
-          "Built transferable habits for analytical problem-solving ahead of university engineering study.",
+          "Achieved a HKDSE Best Five score of 26 and ranked 4th in my secondary school cohort in the graduating year.",
+          "Received several academic awards, including first place in subjects such as Physics and ICT.",
         ],
+      },
+      {
+        type: "paragraph",
+        text: "Beyond formal grades, I built transferable habits for analytical problem-solving and began exploring AI-related technology during secondary school.",
+      },
+      {
+        type: "paragraph",
+        text: "From Form 4 through Form 6, I was part of a close-knit class with strong cohesion. Many of my closest friends today are classmates from those years—we studied together, supported one another through senior secondary, and still keep in touch.",
+      },
+      {
+        type: "paragraph",
+        text: "Preparing for the HKDSE was demanding, but looking back, those years—including the late-night revision, the model-team practices, and the shared milestones with my class—are among the most memorable of my school life.",
       },
     ],
     emblem: "/images/Emblem_of_SKHCYSS.png",
@@ -172,7 +199,11 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     contributionsContent: [
       {
         type: "paragraph",
-        text: "I completed my primary education at Tsang Mui Millennium School from 2010 to 2016. I performed well academically, especially in science- and technology-related subjects, and took part in extracurricular activities such as the school robot team.",
+        text: "I completed my primary education at Tsang Mui Millennium School from 2010 to 2016. I performed well academically, especially in science- and technology-related subjects.",
+      },
+      {
+        type: "paragraph",
+        text: "Outside class, I joined the school robot team. Around 2014–2015, we took part in a robotics-related competition at Hong Kong Science Park and achieved a good result for the school. The details have faded over the years, but it was an early experience of working together on a practical, hands-on project.",
       },
       {
         type: "paragraph",
@@ -190,7 +221,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
       },
       {
         type: "paragraph",
-        text: "Thanks to these study tours, I explored Hong Kong and places overseas early on and broadened my view of the world.",
+        text: "Thanks to the study tours, the robot team, and the school's emphasis on science, I explored Hong Kong and places overseas early on and developed a lasting interest in technology.",
       },
     ],
     emblem: "/images/Emblem_of_TMMS.png",
