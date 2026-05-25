@@ -185,6 +185,32 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
         "S.K.H. Chan Young Secondary School, 6 Chi Cheong Road, Sheung Shui, North District, Hong Kong",
       zoom: 16,
     },
+    gallery: [
+      {
+        src: "/images/skhcyss-1.jpg",
+        alt: "Aerial view of S.K.H. Chan Young Secondary School campus",
+        caption:
+          "School campus from above—the track, sports court, and main building where I spent six years.",
+      },
+      {
+        src: "/images/skhcyss-2.jpg",
+        alt: "Inter-house quiz competition in the school hall",
+        caption:
+          "The school hall during the 2021–22 inter-house quiz competition.",
+      },
+      {
+        src: "/images/skhcyss-3.jpg",
+        alt: "Computer laboratory with students using laptops",
+        caption:
+          "The ICT computer room—where much of my elective coursework and early programming practice took place.",
+      },
+      {
+        src: "/images/skhcyss-4.jpg",
+        alt: "Students and staff on stage at Speech Day 2021",
+        caption:
+          "32nd Speech Day (2022)—a formal milestone near the end of my secondary years, together with my class 6C.",
+      },
+    ],
   },
   {
     id: "tmms",
