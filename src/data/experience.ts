@@ -106,20 +106,60 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
   {
     id: "cuhk",
     kind: "education",
-    title: "B.Eng. in Artificial Intelligence",
+    title: "B.Eng. in Artificial Intelligence: Systems and Technologies",
     organization: "The Chinese University of Hong Kong",
     time: "2022 - Present",
     institutionOverview:
       "The Chinese University of Hong Kong (CUHK) is a comprehensive, research-intensive university in Hong Kong’s New Territories (Sha Tin). It is organised around academic faculties and the collegiate system—undergraduate students typically affiliate with a constituent college while pursuing disciplinary majors.\n\nAcross engineering and broader STEM fields, CUHK maintains substantial teaching and research capacity and participates actively in Hong Kong’s innovation ecosystem (including partnerships and mainland-facing centres referenced on the university website).\n\nThe undergraduate Artificial Intelligence programme fits within this engineering-facing environment: students receive rigorous technical training alongside electives and projects aimed at connecting theory to applications. Despite “Chinese” in the institution name, major undergraduate engineering and science courses are commonly delivered in English.",
     cardSummary:
-      "Undergraduate AI studies centred on computer vision and large language models, with projects oriented toward real-world applications.",
+      "United College, B.Eng. AI (Systems and Technologies)—CV and LLM coursework with a Year 2 focus on becoming an AI full-stack engineer.",
     contributionsContent: [
+      {
+        type: "paragraph",
+        text: "I am pursuing a B.Eng. in Artificial Intelligence: Systems and Technologies at CUHK (2022–present) and am affiliated with United College under the university’s collegiate system.",
+      },
+      {
+        type: "paragraph",
+        text: "Compared with pure theoretical research, I am stronger and more interested in practical problem-solving with AI. From Year 2 onward, I shaped a clear career direction: becoming an AI full-stack engineer.",
+      },
+      {
+        type: "paragraph",
+        text: "My academic focus has been on Computer Vision and Large Language Models (LLMs), with course projects concentrated in these areas and an emphasis on building applied solutions rather than theory-only work.",
+      },
+      {
+        type: "paragraph",
+        text: "Meaningful courses:",
+      },
       {
         type: "bullets",
         items: [
-          "Focused academically on Computer Vision and Large Language Models (LLMs).",
-          "Coursework and projects emphasize applying AI models to practical problems.",
-          "Experience studying in English across core engineering and AI subjects.",
+          "AIST 1000 — Introduction to AI & ML",
+          "CSCI 2100 — Data Structures",
+          "AIST 3020 — Intro to Computer Systems",
+          "CSCI 3230 — Fundamentals of AI",
+          "CSCI 3160 — Design & Analysis of Algo",
+          "AIST 3030 — Numerical Optimization",
+          "AIST 2010 — Intro to Computer Music",
+          "SEEM 2460 — Introduction to Data Science",
+          "CSCI 3320 — Fund. of Machine Learning",
+          "CSCI 3170 — Intro to Database Systems",
+          "AIST 3110 — Music Information Retrieval",
+          "CSCI 3150 — Intro to Operating Systems",
+          "AIST 4010 — Foundation of Applied DL",
+          "IERG 3310 — Computer Networks",
+          "CSCI 4130 — Intro to Cyber Security",
+          "CSCI 3310 — Mobile Computing & Apps Dev",
+          "AIST 4998 & AIST 4999 — Final Year Project",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "University core (U-core):",
+      },
+      {
+        type: "bullets",
+        items: [
+          "General Education (GE), Physical Education (PE), and College General Education alongside major courses.",
         ],
       },
     ],
