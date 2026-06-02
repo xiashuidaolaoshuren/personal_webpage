@@ -169,6 +169,32 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
       address: "The Chinese University of Hong Kong, Shatin, NT, Hong Kong SAR",
       zoom: 15,
     },
+    gallery: [
+      {
+        src: "/images/cuhk-1.png",
+        alt: "University Mall building with the CUHK crest",
+        caption:
+          "University Mall—the landmark building with the university crest above the central steps.",
+      },
+      {
+        src: "/images/cuhk-2.jpg",
+        alt: "Aerial view of the CUHK campus among green hills",
+        caption:
+          "CUHK from above—buildings, sports facilities, and forested slopes across the New Territories campus.",
+      },
+      {
+        src: "/images/cuhk-3.jpg",
+        alt: "S.H. Ho Engineering Building",
+        caption:
+          "S.H. Ho Engineering Building, where much of my engineering and AI coursework takes place.",
+      },
+      {
+        src: "/images/cuhk-4.jpg",
+        alt: "United College water tower and CUHK campus on the hills",
+        caption:
+          "United College and the campus on the Shatin hills—my collegiate home at CUHK.",
+      },
+    ],
   },
   {
     id: "skhcyss",
