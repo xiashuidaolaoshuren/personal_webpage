@@ -114,6 +114,32 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
         "iASPEC Service Limited, Lakeside 1, Hong Kong Science Park, Shatin, Hong Kong",
       zoom: 18,
     },
+    gallery: [
+      {
+        src: "/images/iaspec-1.jpg",
+        alt: "Hong Kong Science Park campus with the Golden Egg auditorium",
+        caption:
+          "Hong Kong Science Park—where iASPEC Service Limited is based and where I interned over the summer.",
+      },
+      {
+        src: "/images/iaspec-2.jpg",
+        alt: "Modern open-plan office workspace",
+        caption:
+          "The engineering workspace where I paired with senior engineers on frontend and backend tasks.",
+      },
+      {
+        src: "/images/iaspec-3.PNG",
+        alt: "iASPEC Holding Group website overview",
+        caption:
+          "iASPEC’s broader footprint across FinTech, EdTech, HealthTech, and enterprise software services.",
+      },
+      {
+        src: "/images/iaspec-4.PNG",
+        alt: "AI Software Testing Platform product page",
+        caption:
+          "The AI Software Testing Platform I helped build—an AI-powered solution for testing planning, execution, and issue tracking.",
+      },
+    ],
   },
 ];
 
