@@ -477,6 +477,76 @@ export const PROJECTS: ProjectItem[] = [
       "SuperCollider",
     ],
   },
+  {
+    id: "agentic-ai-news-agent",
+    title: "AI News Research Agent",
+    status: "In Progress",
+    summary:
+      "Local-first Python agent that collects AI news from GitHub and Bilibili, ranks candidates, summarizes with an LLM, persists runs to SQLite, and exposes a CLI plus optional Gradio chat UI.",
+    overview:
+      "This side project is a local-first research assistant for on-demand AI news digests. A LangGraph workflow orchestrates connectors, ranking, and summarization; results land in SQLite so follow-up chat can reference sources, rankings, and caveats. Milestone 1 ships the full local digest MVP: connectors, storage, CLI, Gradio UI, and tests—without cloud deployment or scheduled runs.",
+    problem:
+      "Staying current on AI tooling and research means checking many scattered sources—repos, videos, and forums—with uneven signal and no single place to compare what matters today. I wanted a reproducible pipeline that could aggregate conservative sources, rank what is worth reading, and summarize with traceable citations rather than one-off manual browsing.",
+    approach:
+      "The stack is Python 3.11+ with uv for dependency management. Connectors pull from GitHub and metadata-first Bilibili APIs; a ranking stage filters and orders candidates before an OpenAI-compatible LLM (or deterministic fakes offline) writes the digest. LangGraph wires the workflow; DigestStore persists runs to SQLite. Intent parsing in chat supports targeted digests from repo or video URLs. The CLI (`ai-news-agent`) and Gradio app share the same source registry and structured logging, with session-sticky source toggles and natural-language overrides for single-run connector selection.",
+    features: [
+      "LangGraph workflow: collect → rank → summarize with persisted traces in SQLite",
+      "GitHub and Bilibili connectors with reciprocal ranking and topic/timeframe filters",
+      "OpenAI-compatible summarization plus offline `--fake` mode for deterministic smoke tests",
+      "CLI entrypoint and Gradio chat UI with digest progress streaming and example prompts",
+      "Chat follow-ups: list sources, top pick, caveats, and LLM replies when configured",
+      "Targeted digests from GitHub repo URLs, Bilibili video URLs, or channel hints via intent parsing",
+      "Structured logging to terminal and rotating file; shared connector registry across CLI and UI",
+      "pytest suite including MVP smoke tests and optional live Bilibili connector checks",
+    ],
+    results:
+      "Milestone 1 is complete: the agent runs end-to-end locally with tests passing in offline fake mode. Bilibili remains metadata-first (no transcript understanding), which limits confidence on thin items—a documented MVP trade-off. Next milestones may add OpenClaw integration, scheduling, and additional connectors; benchmarks and portfolio evidence are planned for a later pass.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/agentic_ai_proj",
+    techStack: [
+      "Python",
+      "LangGraph",
+      "LangChain",
+      "Gradio",
+      "SQLite",
+      "OpenAI API",
+      "pytest",
+    ],
+  },
+  {
+    id: "focusflow-ai",
+    title: "FocusFlow AI",
+    status: "In Progress",
+    summary:
+      "Java-first learning project: a Spring Boot backend for task management and AI-assisted daily plan generation, with session auth, CSRF-protected APIs, PostgreSQL via Docker, and an OpenAI-compatible plan client—Milestone 1 backend only.",
+    overview:
+      "FocusFlow AI is a structured way to practice enterprise Java while building something useful: users manage tasks, then generate a daily plan from active work given available time. Milestone 1 delivers the backend API—auth, tasks, plans, and AI generation—without a frontend yet. The design emphasizes layered packages, testability, and clear boundaries between security, persistence, and provider calls.",
+    problem:
+      "Turning a backlog into a realistic daily schedule is tedious when estimates, priorities, and available minutes do not line up. I also wanted hands-on experience with Spring Security sessions, JPA scoping by owner, and integrating an external LLM without letting provider details leak through every service.",
+    approach:
+      "Spring Boot on Java 21 with Gradle, PostgreSQL in Docker, and Hibernate schema updates for local dev. Features are split into `auth`, `user`, `security`, `task`, `plan`, `ai`, and `common/error`. Register/login establish a session cookie; state-changing routes require CSRF cookie plus header. Tasks and plans are always queried by owner id. `DailyPlanAiClient` abstracts the provider; `OpenAiDailyPlanClient` implements the OpenAI-compatible adapter. ArchUnit enforces layering in tests; Testcontainers covers selected integration paths.",
+    features: [
+      "REST API: register, login, logout, session me; full task CRUD scoped to the current user",
+      "POST `/api/daily-plans/generate` builds a plan from active tasks and available minutes",
+      "Spring Security session cookies with CSRF protection on mutating requests",
+      "JPA entities and services with owner-scoped repositories",
+      "OpenAI-compatible daily plan generation with mockable `DailyPlanAiClient`",
+      "Consistent error mapping: 400 validation, 401 unauthenticated, 404 not found, 502 AI provider failures",
+      "Docker Compose for local PostgreSQL; `.env.example` for datasource and provider keys",
+      "82 passing backend tests including ArchUnit layered architecture checks (Milestone 1 verification)",
+    ],
+    results:
+      "Milestone 1 backend is verified: automated tests pass and manual HTTP checks cover auth, tasks, plan generation, and provider failure handling (502 without partial persistence). The main learning outcomes were session security, CSRF in a cookie-based API, JPA ownership patterns, and keeping AI behind a narrow client interface. Milestone 2 will add a React frontend; screenshots, demos, and benchmark-style metrics are deferred to a portfolio enrichment pass.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/java_project",
+    techStack: [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Gradle",
+      "JUnit",
+      "OpenAI API",
+    ],
+  },
 ];
 
 export function getProjectById(id: string): ProjectItem | undefined {
