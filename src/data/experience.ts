@@ -75,18 +75,33 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     institutionOverview:
       "The iASPEC Group traces its roots to Hong Kong in 1988 and positions itself as a software and technology house serving enterprises across several domains.\n\nPublic-facing materials highlight four pillars: financial technology (including secure interbank and cross-border payment channels aligned with clearing, RTGS, and SWIFT-class infrastructure), health technology (teleconsultation and remote monitoring oriented offerings), education technology (interactive e-learning, virtual classrooms, and adaptive-style curricula messaging), and identity-oriented cybersecurity (digital signatures, strong authentication, and compliance-aware enterprise protections). Consulting, cloud delivery, and R&D outsourcing appear alongside product-style offerings.\n\niASPEC Service Limited operates as part of this broader footprint in Hong Kong, contributing enterprise-grade engineering where automation, reliability, and intelligent tooling intersect.",
     cardSummary:
-      "Summer internship building an AI-assisted software testing platform with the engineering team—frontend and backend work across ~300 commits.",
+      "Summer internship as a full-stack engineer on an AI-powered software testing platform—React/Vite frontend and FastAPI backend, ~300 commits.",
     contributionsContent: [
       {
         type: "paragraph",
-        text: "Over three months I worked alongside senior engineers on an AI-powered software testing platform, shipping features across the stack and contributing steadily to the shared codebase.",
+        text: "Over three months I worked as a full-stack engineer on an AI-powered software testing platform, shipping features alongside senior engineers and contributing steadily to the shared codebase.",
+      },
+      {
+        type: "paragraph",
+        text: "Tech stack:",
       },
       {
         type: "bullets",
         items: [
-          "Collaborated with senior engineers on frontend and backend components for the platform.",
-          "Contributed roughly 300 commits while iterating on reliability and product-facing workflows.",
-          "Supported research and implementation tied to automated testing and intelligent tooling.",
+          "Frontend: React, Vite, Tailwind CSS, shadcn/ui",
+          "Backend: Python, FastAPI, PostgreSQL",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Contributions:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Built and iterated on frontend components—the web UI that teams use to drive testing workflows.",
+          "Implemented basic backend pieces such as API call handling and supporting endpoints.",
+          "Contributed roughly 300 commits while improving reliability and product-facing workflows.",
         ],
       },
     ],
