@@ -16,11 +16,11 @@ interface LanguageSkill {
 const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
-    skills: ["Python", "TypeScript/JavaScript", "C/C++", "SQL", "HTML/CSS", "Android Kotlin"],
+    skills: ["Python", "TypeScript/JavaScript", "C/C++", "SQL", "HTML/CSS", "Android Kotlin", "Java"],
   },
   {
     title: "Tools & Frameworks",
-    skills: ["React", "Node.js", "Tailwind CSS", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Cursor"],
+    skills: ["React", "Node.js", "Tailwind CSS", "Shadcn/ui", "Figma", "Tableau", "Microsoft Office", "Git", "Docker", "PyTorch", "Pandas", "NumPy", "Scikit-learn", "Cursor", "LangChain / LangGraph", "Spring Boot"],
   },
   {
     title: "Soft Skills",
@@ -41,6 +41,8 @@ const InterestedFields: string[] = [
   "Deep Learning",
   "Natural Language Processing",
   "Machine Learning",
+  "AI Full Stack Development",
+  "Agentic AI"
 ]
 
 function LanguageRating({ level }: { readonly level: number }) {

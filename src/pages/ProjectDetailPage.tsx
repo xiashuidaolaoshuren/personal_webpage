@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Github } from "lucide-react";
+import { BulletList } from "@/components/BulletList";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProjectBenchmarkChart } from "@/components/project/ProjectBenchmarkChart";
@@ -148,11 +149,7 @@ export function ProjectDetailPage() {
           </DetailSection>
 
           <DetailSection title="Key features" delayClass="delay-150">
-            <ul className="list-inside list-disc space-y-2 marker:text-primary/70">
-              {project.features.map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
+            <BulletList items={project.features} />
           </DetailSection>
 
           {gallery.length > 0 ? (

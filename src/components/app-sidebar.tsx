@@ -123,7 +123,7 @@ export function AppSidebar() {
               {/* Email as text */}
               <div className="flex items-center gap-2 text-base">
                 <Mail className="size-5" />
-                <span className="text-muted-foreground text-[15px]">1155192846@link.cuhk.edu.hk</span>
+                <span className="text-muted-foreground text-[15px]">so1490600850@gmail.com</span>
               </div>
               
               {/* Phone as text */}
