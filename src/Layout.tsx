@@ -12,12 +12,13 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider
       defaultOpen={true}
+      className="h-svh overflow-hidden"
       style={{ "--sidebar-width": "20rem" } as CSSProperties}
     >
       <AppSidebar />
       <SidebarInset
         className={cn(
-          "relative isolate min-h-svh flex-1 overflow-x-hidden overflow-y-auto [scrollbar-gutter:stable]",
+          "relative isolate h-svh min-h-0 flex-1 overflow-x-hidden overflow-y-auto [scrollbar-gutter:stable]",
           "ambient-main-surface",
           projectsAmbient && "ambient-main-surface--projects"
         )}

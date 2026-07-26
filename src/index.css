@@ -209,12 +209,13 @@ button:focus-visible {
 
   /* Sidebar shell: height; width token comes from SidebarProvider inline style */
   .group\/sidebar-wrapper {
-    min-height: 100vh;
+    height: 100svh;
+    min-height: 0;
   }
 
   /* Make sidebar full screen height with shadow */
   .group\/sidebar-wrapper > div:first-child {
-    height: 100vh !important;
+    height: 100svh !important;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
   }
 
