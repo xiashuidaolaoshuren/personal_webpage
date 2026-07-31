@@ -73,7 +73,11 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     organization: "Gekko Artificial Intelligence Limited",
     time: "June 2026 - July 2026",
     institutionOverview:
-      "TODO: Add a short third-person overview of Gekko Artificial Intelligence Limited (sector, products, reputation).",
+      "Gekko Lab (Gekko Artificial Intelligence Limited) is a Hong Kong-based legal technology and data analytics company founded in 2016. It builds AI-powered research and automation tools for corporate lawyers, financial professionals, regulators, and enterprise teams focused on capital markets.\n\nPublic materials position Gekko as an AI-powered legal research engine and capital markets database. Core offerings include GekkoSearch (filing search across Hong Kong, mainland China, Singapore, and US listed-company disclosures), Market Eye (deep-dive Hong Kong corporate actions and IPO-related datasets), and GekkoGraph (knowledge-graph network analytics for entity relationships). The company also offers enterprise-grade document vetting and customised data automation for legal and compliance workflows.\n\nGekko reports adoption by 1,000+ legal and finance professionals and highlights trust from international law firms and financial regulators. Its data coverage spans 10M+ filings across four markets with decades of historical depth, and the company holds ISO 27001 and ISO 9001 certifications. Free market-overview resources (HK IPO, M&A, ESG) are published on its website.",
+    cardSummary:
+      "Hong Kong legaltech internship at an AI-powered capital markets research platform—filing search, corporate actions data, and knowledge-graph tooling trusted by law firms and regulators.",
+    emblem: "/images/Emblem_of_Gekko.jpg",
+    url: "https://www.gekko.ai/",
   },
   {
     id: "iaspec-2025",
