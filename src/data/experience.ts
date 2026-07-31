@@ -67,6 +67,15 @@ export interface ExperienceItem {
 
 export const JOB_EXPERIENCES: ExperienceItem[] = [
   {
+    id: "gekko-2026",
+    kind: "job",
+    title: "Software Engineer Intern",
+    organization: "Gekko Artificial Intelligence Limited",
+    time: "June 2026 - July 2026",
+    institutionOverview:
+      "TODO: Add a short third-person overview of Gekko Artificial Intelligence Limited (sector, products, reputation).",
+  },
+  {
     id: "iaspec-2025",
     kind: "job",
     title: "Software Engineer Intern (Summer 2025)",
