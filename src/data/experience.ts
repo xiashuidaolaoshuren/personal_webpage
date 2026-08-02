@@ -75,7 +75,39 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     institutionOverview:
       "Gekko Lab (Gekko Artificial Intelligence Limited) is a Hong Kong-based legal technology and data analytics company founded in 2016. It builds AI-powered research and automation tools for corporate lawyers, financial professionals, regulators, and enterprise teams focused on capital markets.\n\nPublic materials position Gekko as an AI-powered legal research engine and capital markets database. Core offerings include GekkoSearch (filing search across Hong Kong, mainland China, Singapore, and US listed-company disclosures), Market Eye (deep-dive Hong Kong corporate actions and IPO-related datasets), and GekkoGraph (knowledge-graph network analytics for entity relationships). The company also offers enterprise-grade document vetting and customised data automation for legal and compliance workflows.\n\nGekko reports adoption by 1,000+ legal and finance professionals and highlights trust from international law firms and financial regulators. Its data coverage spans 10M+ filings across four markets with decades of historical depth, and the company holds ISO 27001 and ISO 9001 certifications. Free market-overview resources (HK IPO, M&A, ESG) are published on its website.",
     cardSummary:
-      "Hong Kong legaltech internship at an AI-powered capital markets research platform—filing search, corporate actions data, and knowledge-graph tooling trusted by law firms and regulators.",
+      "Infrastructure and evaluation internship—air-gapped Ubuntu Pro deployment, SMTP relay setup, Teams Bot API rate-limit experiments, and SLA performance testing for HKEX LARA.",
+    contributionsContent: [
+      {
+        type: "paragraph",
+        text: "Over about six weeks I worked on infrastructure and software engineering tasks spanning enterprise deployment, service integration, API evaluation, and SLA performance testing—often researching unfamiliar tools independently and turning findings into documentation the team could reuse.",
+      },
+      {
+        type: "paragraph",
+        text: "Focus areas:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Linux / Ubuntu environments and air-gapped enterprise deployment workflows",
+          "SMTP and SMTP-relay service configuration",
+          "API rate-limit evaluation (Microsoft Teams Bot APIs)",
+          "SLA-oriented performance testing and metrics analysis",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Contributions:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Explored Ubuntu Pro attachment in air-gapped settings and documented a production-ready deployment workflow for restricted-network environments.",
+          "Evaluated open-source SMTP / SMTP-relay options, configured mail-server setups, and wrote deployment notes for the team.",
+          "Designed and ran rate-limit experiments against Microsoft Teams Bot APIs under different request patterns; documented limits and findings for later implementation.",
+          "Prepared and executed SLA performance tests for the HKEX LARA project, compared system metrics against SLA requirements, and documented results to support validation and optimization.",
+        ],
+      },
+    ],
     emblem: "/images/Emblem_of_Gekko.jpg",
     url: "https://www.gekko.ai/",
   },
