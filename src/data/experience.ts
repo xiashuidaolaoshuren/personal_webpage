@@ -110,6 +110,12 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     ],
     emblem: "/images/Emblem_of_Gekko.jpg",
     url: "https://www.gekko.ai/",
+    location: {
+      address:
+        "Room 1606, 16/F, Tower 535, 535 Jaffe Road, Causeway Bay, Hong Kong",
+      mapQuery: "place_id:ChIJAQDw9FYABDQRCsDB1gbNuQg",
+      zoom: 17,
+    },
   },
   {
     id: "iaspec-2025",
