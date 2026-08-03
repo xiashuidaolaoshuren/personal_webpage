@@ -116,6 +116,32 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
       mapQuery: "place_id:ChIJAQDw9FYABDQRCsDB1gbNuQg",
       zoom: 17,
     },
+    gallery: [
+      {
+        src: "/images/gekko-1.jpg",
+        alt: "Tower 535 glass tower exterior from street level in Causeway Bay",
+        caption:
+          "Tower 535 on Jaffe Road—where Gekko Artificial Intelligence Limited is based and where I interned.",
+      },
+      {
+        src: "/images/gekko-2.jpg",
+        alt: "Night view of Gekko’s Shenzhen R&D center buildings in Qianhai, Shenzhen",
+        caption:
+          "Gekko’s Shenzhen R&D center in Qianhai—where I traveled frequently during the internship.",
+      },
+      {
+        src: "/images/gekko-3.png",
+        alt: "Gekko website homepage promoting document vetting automation",
+        caption:
+          "Gekko’s public site—enterprise legal and compliance automation alongside its capital markets research tools.",
+      },
+      {
+        src: "/images/gekko-4.jpg",
+        alt: "Office hallway at Room 1606 with the Gekko Artificial Intelligence Limited sign",
+        caption:
+          "Outside Room 1606 at Tower 535—with my mentor (right), whose guidance shaped the internship.",
+      },
+    ],
   },
   {
     id: "iaspec-2025",
