@@ -226,7 +226,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     kind: "education",
     title: "B.Eng. in Artificial Intelligence: Systems and Technologies",
     organization: "The Chinese University of Hong Kong",
-    time: "2022 - Present",
+    time: "2022 - 2026",
     institutionOverview:
       "The Chinese University of Hong Kong (CUHK) is a comprehensive, research-intensive university in Hong Kong’s New Territories (Sha Tin). It is organised around academic faculties and the collegiate system—undergraduate students typically affiliate with a constituent college while pursuing disciplinary majors.\n\nAcross engineering and broader STEM fields, CUHK maintains substantial teaching and research capacity and participates actively in Hong Kong’s innovation ecosystem (including partnerships and mainland-facing centres referenced on the university website).\n\nThe undergraduate Artificial Intelligence programme fits within this engineering-facing environment: students receive rigorous technical training alongside electives and projects aimed at connecting theory to applications. Despite “Chinese” in the institution name, major undergraduate engineering and science courses are commonly delivered in English.",
     cardSummary:
@@ -234,7 +234,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     contributionsContent: [
       {
         type: "paragraph",
-        text: "I am pursuing a B.Eng. in Artificial Intelligence: Systems and Technologies at CUHK (2022–present) and am affiliated with United College under the university’s collegiate system.",
+        text: "I graduated with a B.Eng. in Artificial Intelligence: Systems and Technologies from CUHK (2022–2026) and was affiliated with United College under the university’s collegiate system.",
       },
       {
         type: "paragraph",

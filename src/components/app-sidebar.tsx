@@ -71,7 +71,7 @@ export function AppSidebar() {
       <SidebarHeader className="sidebar-header-identity border-b border-sidebar-border/70 px-4 pb-4 pt-5">
         <div className="flex flex-col items-center gap-0.5 text-center">
           <h2 className="text-lg font-semibold tracking-tight text-sidebar-foreground">Felix So</h2>
-          <p className="text-xs leading-snug text-muted-foreground">AI Student · CUHK</p>
+          <p className="text-xs leading-snug text-muted-foreground">B.Eng. AI Graduate · CUHK</p>
         </div>
       </SidebarHeader>
 
