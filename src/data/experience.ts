@@ -67,6 +67,83 @@ export interface ExperienceItem {
 
 export const JOB_EXPERIENCES: ExperienceItem[] = [
   {
+    id: "gekko-2026",
+    kind: "job",
+    title: "Software Engineer Intern",
+    organization: "Gekko Artificial Intelligence Limited",
+    time: "June 2026 - July 2026",
+    institutionOverview:
+      "Gekko Lab (Gekko Artificial Intelligence Limited) is a Hong Kong-based legal technology and data analytics company founded in 2016. It builds AI-powered research and automation tools for corporate lawyers, financial professionals, regulators, and enterprise teams focused on capital markets.\n\nPublic materials position Gekko as an AI-powered legal research engine and capital markets database. Core offerings include GekkoSearch (filing search across Hong Kong, mainland China, Singapore, and US listed-company disclosures), Market Eye (deep-dive Hong Kong corporate actions and IPO-related datasets), and GekkoGraph (knowledge-graph network analytics for entity relationships). The company also offers enterprise-grade document vetting and customised data automation for legal and compliance workflows.\n\nGekko reports adoption by 1,000+ legal and finance professionals and highlights trust from international law firms and financial regulators. Its data coverage spans 10M+ filings across four markets with decades of historical depth, and the company holds ISO 27001 and ISO 9001 certifications. Free market-overview resources (HK IPO, M&A, ESG) are published on its website.",
+    cardSummary:
+      "Infrastructure and evaluation internship—air-gapped Ubuntu Pro deployment, SMTP relay setup, Teams Bot API rate-limit experiments, and SLA performance testing for HKEX LARA.",
+    contributionsContent: [
+      {
+        type: "paragraph",
+        text: "Over about six weeks I worked on infrastructure and software engineering tasks spanning enterprise deployment, service integration, API evaluation, and SLA performance testing—often researching unfamiliar tools independently and turning findings into documentation the team could reuse.",
+      },
+      {
+        type: "paragraph",
+        text: "Focus areas:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Linux / Ubuntu environments and air-gapped enterprise deployment workflows",
+          "SMTP and SMTP-relay service configuration",
+          "API rate-limit evaluation (Microsoft Teams Bot APIs)",
+          "SLA-oriented performance testing and metrics analysis",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Contributions:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Explored Ubuntu Pro attachment in air-gapped settings and documented a production-ready deployment workflow for restricted-network environments.",
+          "Evaluated open-source SMTP / SMTP-relay options, configured mail-server setups, and wrote deployment notes for the team.",
+          "Designed and ran rate-limit experiments against Microsoft Teams Bot APIs under different request patterns; documented limits and findings for later implementation.",
+          "Prepared and executed SLA performance tests for the HKEX LARA project, compared system metrics against SLA requirements, and documented results to support validation and optimization.",
+        ],
+      },
+    ],
+    emblem: "/images/Emblem_of_Gekko.jpg",
+    url: "https://www.gekko.ai/",
+    location: {
+      address:
+        "Room 1606, 16/F, Tower 535, 535 Jaffe Road, Causeway Bay, Hong Kong",
+      mapQuery: "place_id:ChIJAQDw9FYABDQRCsDB1gbNuQg",
+      zoom: 17,
+    },
+    gallery: [
+      {
+        src: "/images/gekko-1.jpg",
+        alt: "Tower 535 glass tower exterior from street level in Causeway Bay",
+        caption:
+          "Tower 535 on Jaffe Road—where Gekko Artificial Intelligence Limited is based and where I interned.",
+      },
+      {
+        src: "/images/gekko-2.jpg",
+        alt: "Night view of Gekko’s Shenzhen R&D center buildings in Qianhai, Shenzhen",
+        caption:
+          "Gekko’s Shenzhen R&D center in Qianhai—where I traveled frequently during the internship.",
+      },
+      {
+        src: "/images/gekko-3.png",
+        alt: "Gekko website homepage promoting document vetting automation",
+        caption:
+          "Gekko’s public site—enterprise legal and compliance automation alongside its capital markets research tools.",
+      },
+      {
+        src: "/images/gekko-4.jpg",
+        alt: "Office hallway at Room 1606 with the Gekko Artificial Intelligence Limited sign",
+        caption:
+          "Outside Room 1606 at Tower 535—with my mentor (right), whose guidance shaped the internship.",
+      },
+    ],
+  },
+  {
     id: "iaspec-2025",
     kind: "job",
     title: "Software Engineer Intern (Summer 2025)",
