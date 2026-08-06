@@ -236,7 +236,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     institutionOverview:
       "The Chinese University of Hong Kong (CUHK) is a comprehensive, research-intensive university in Hong Kong’s New Territories (Sha Tin). It is organised around academic faculties and the collegiate system—undergraduate students typically affiliate with a constituent college while pursuing disciplinary majors.\n\nAcross engineering and broader STEM fields, CUHK maintains substantial teaching and research capacity and participates actively in Hong Kong’s innovation ecosystem (including partnerships and mainland-facing centres referenced on the university website).\n\nThe undergraduate Artificial Intelligence programme fits within this engineering-facing environment: students receive rigorous technical training alongside electives and projects aimed at connecting theory to applications. Despite “Chinese” in the institution name, major undergraduate engineering and science courses are commonly delivered in English.",
     cardSummary:
-      "United College, B.Eng. AI (Systems and Technologies)—CV and LLM coursework with a Year 2 focus on becoming an AI full-stack engineer.",
+      "United College graduate, B.Eng. AI (Systems and Technologies)—CV and LLM coursework and applied projects toward AI full-stack engineering.",
     contributionsContent: [
       {
         type: "paragraph",
