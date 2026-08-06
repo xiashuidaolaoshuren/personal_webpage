@@ -112,7 +112,7 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
         ],
       },
     ],
-    emblem: "/images/Emblem_of_Gekko.jpg",
+    emblem: "/images/Emblem_of_Gekko.png",
     url: "https://www.gekko.ai/",
     location: {
       address:
