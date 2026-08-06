@@ -18,7 +18,7 @@ export function Hero() {
           </span>
         </h1>
         <p className="mb-8 text-xl text-muted-foreground">
-          AI Student @{" "}
+          B.Eng. AI Graduate @{" "}
           <span className="font-medium text-primary">CUHK</span>
           {" "}| Computer Vision & LLM Enthusiast
         </p>

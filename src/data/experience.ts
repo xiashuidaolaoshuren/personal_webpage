@@ -7,6 +7,8 @@ import type { ContentBlock } from "@/types/content-blocks";
 
 export type ExperienceKind = "job" | "education";
 
+export type ExperienceEngagement = "Full-time" | "Part-time" | "Internship";
+
 export interface ExperienceLocation {
   /** Full address shown under “Location” on the detail page. */
   address: string;
@@ -44,6 +46,7 @@ export interface ExperienceItem {
   title: string;
   organization: string;
   time: string;
+  engagement: ExperienceEngagement;
   /**
    * Neutral, third-person context about the organization (sector, reputation, programmes).
    * Shown under “About …” on the detail page and on listing cards unless `cardSummary` is set.
@@ -72,6 +75,7 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     title: "Software Engineer Intern",
     organization: "Gekko Artificial Intelligence Limited",
     time: "June 2026 - July 2026",
+    engagement: "Internship",
     institutionOverview:
       "Gekko Lab (Gekko Artificial Intelligence Limited) is a Hong Kong-based legal technology and data analytics company founded in 2016. It builds AI-powered research and automation tools for corporate lawyers, financial professionals, regulators, and enterprise teams focused on capital markets.\n\nPublic materials position Gekko as an AI-powered legal research engine and capital markets database. Core offerings include GekkoSearch (filing search across Hong Kong, mainland China, Singapore, and US listed-company disclosures), Market Eye (deep-dive Hong Kong corporate actions and IPO-related datasets), and GekkoGraph (knowledge-graph network analytics for entity relationships). The company also offers enterprise-grade document vetting and customised data automation for legal and compliance workflows.\n\nGekko reports adoption by 1,000+ legal and finance professionals and highlights trust from international law firms and financial regulators. Its data coverage spans 10M+ filings across four markets with decades of historical depth, and the company holds ISO 27001 and ISO 9001 certifications. Free market-overview resources (HK IPO, M&A, ESG) are published on its website.",
     cardSummary:
@@ -108,7 +112,7 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
         ],
       },
     ],
-    emblem: "/images/Emblem_of_Gekko.jpg",
+    emblem: "/images/Emblem_of_Gekko.png",
     url: "https://www.gekko.ai/",
     location: {
       address:
@@ -149,6 +153,7 @@ export const JOB_EXPERIENCES: ExperienceItem[] = [
     title: "Software Engineer Intern (Summer 2025)",
     organization: "iASPEC Service Limited",
     time: "June 2025 - August 2025",
+    engagement: "Internship",
     institutionOverview:
       "The iASPEC Group traces its roots to Hong Kong in 1988 and positions itself as a software and technology house serving enterprises across several domains.\n\nPublic-facing materials highlight four pillars: financial technology (including secure interbank and cross-border payment channels aligned with clearing, RTGS, and SWIFT-class infrastructure), health technology (teleconsultation and remote monitoring oriented offerings), education technology (interactive e-learning, virtual classrooms, and adaptive-style curricula messaging), and identity-oriented cybersecurity (digital signatures, strong authentication, and compliance-aware enterprise protections). Consulting, cloud delivery, and R&D outsourcing appear alongside product-style offerings.\n\niASPEC Service Limited operates as part of this broader footprint in Hong Kong, contributing enterprise-grade engineering where automation, reliability, and intelligent tooling intersect.",
     cardSummary:
@@ -226,15 +231,16 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     kind: "education",
     title: "B.Eng. in Artificial Intelligence: Systems and Technologies",
     organization: "The Chinese University of Hong Kong",
-    time: "2022 - Present",
+    time: "2022 - 2026",
+    engagement: "Full-time",
     institutionOverview:
       "The Chinese University of Hong Kong (CUHK) is a comprehensive, research-intensive university in Hong Kong’s New Territories (Sha Tin). It is organised around academic faculties and the collegiate system—undergraduate students typically affiliate with a constituent college while pursuing disciplinary majors.\n\nAcross engineering and broader STEM fields, CUHK maintains substantial teaching and research capacity and participates actively in Hong Kong’s innovation ecosystem (including partnerships and mainland-facing centres referenced on the university website).\n\nThe undergraduate Artificial Intelligence programme fits within this engineering-facing environment: students receive rigorous technical training alongside electives and projects aimed at connecting theory to applications. Despite “Chinese” in the institution name, major undergraduate engineering and science courses are commonly delivered in English.",
     cardSummary:
-      "United College, B.Eng. AI (Systems and Technologies)—CV and LLM coursework with a Year 2 focus on becoming an AI full-stack engineer.",
+      "United College graduate, B.Eng. AI (Systems and Technologies)—CV and LLM coursework and applied projects toward AI full-stack engineering.",
     contributionsContent: [
       {
         type: "paragraph",
-        text: "I am pursuing a B.Eng. in Artificial Intelligence: Systems and Technologies at CUHK (2022–present) and am affiliated with United College under the university’s collegiate system.",
+        text: "I graduated with a B.Eng. in Artificial Intelligence: Systems and Technologies from CUHK (2022–2026) and was affiliated with United College under the university’s collegiate system.",
       },
       {
         type: "paragraph",
@@ -320,6 +326,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     title: "Secondary Education",
     organization: "S.K.H. Chan Young Secondary School",
     time: "2016 - 2022",
+    engagement: "Full-time",
     institutionOverview:
       "S.K.H. Chan Young Secondary School is a secondary school under the Anglican (Sheng Kung Hui) family of schools in Hong Kong. Its campus address on record is 6 Chi Cheong Road, Sheung Shui, New Territories.\n\nThe school presents itself as English-medium oriented and participates in broader EMI-school activities—for example student showcases tied to the Association of English Medium Secondary Schools appear among recent news items on the official website.\n\nBeyond languages, public communications emphasize STEM-linked engagement (including ICT-oriented experiences and STEAM-team competitions), careers and life-planning structures, student organisations, and overseas-style learning journeys alongside core HKDSE-facing curriculum.",
     cardSummary:
@@ -402,6 +409,7 @@ export const EDUCATION_ITEMS: ExperienceItem[] = [
     title: "Primary Education",
     organization: "Tsang Mui Millennium School",
     time: "2010 - 2016",
+    engagement: "Full-time",
     institutionOverview:
       "Tsang Mui Millennium School is an aided, whole-day, co-educational primary school in North District (Primary One Admission School Net 80). It opened in 2003, is sponsored by the Lee Chi Tat Memorial Fund Ltd., and sits at 1 Tsing Shing Road, Sheung Shui, New Territories. The medium of instruction reported in the official school profile is Chinese.\n\nThe campus occupies on the order of 6,500 m² with a full six-year class structure (30 classes across P1–P6 in recent years). Facilities named in the school’s public profile include multimedia language provision, arts and music spaces, libraries, and rooms that support diversified learning beyond standard classrooms.\n\nThe school’s stated mission centres on holistic “Sun education,” balancing academic learning with language development, values formation, liberal-arts breadth, creativity, pastoral care, and appreciative classroom culture.\n\nPublic communications also highlight multiple-intelligence style programmes, experiential outdoor learning across primary levels, and overseas learning opportunities for senior pupils. The school motto recorded in its official profile is “Constantly strive for self-perfection.” (Figures above follow the Primary School Profile as published via the Hong Kong Committee for Home-School Cooperation.)",
     cardSummary:

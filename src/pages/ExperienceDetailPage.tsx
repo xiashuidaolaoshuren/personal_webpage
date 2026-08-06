@@ -127,7 +127,16 @@ export function ExperienceDetailPage() {
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {experience.title}
               </h1>
-              <div className="mt-3">
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <Badge
+                  variant={
+                    experience.engagement === "Full-time"
+                      ? "default"
+                      : "secondary"
+                  }
+                >
+                  {experience.engagement}
+                </Badge>
                 <Badge variant="secondary">{experience.time}</Badge>
               </div>
             </div>

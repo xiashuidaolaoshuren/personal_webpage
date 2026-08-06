@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import type { ExperienceItem } from "@/data/experience";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -34,15 +35,24 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
           <CardTitle id={titleId} className="min-w-0 flex-1 text-xl">
             {item.title}
           </CardTitle>
-          {isClickable ? (
-            <div className="flex shrink-0 items-center gap-2">
-              <ArrowRight
-                className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
-                aria-hidden
-              />
-              <span className="sr-only">View experience details</span>
-            </div>
-          ) : null}
+          <div className="flex shrink-0 items-center gap-2">
+            {isClickable ? (
+              <>
+                <ArrowRight
+                  className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                  aria-hidden
+                />
+                <span className="sr-only">View experience details</span>
+              </>
+            ) : null}
+            <Badge
+              variant={
+                item.engagement === "Full-time" ? "default" : "secondary"
+              }
+            >
+              {item.engagement}
+            </Badge>
+          </div>
         </div>
         <div className="flex justify-between gap-4 text-muted-foreground font-medium">
           <span className="min-w-0">{item.organization}</span>
