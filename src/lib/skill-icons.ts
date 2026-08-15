@@ -1,0 +1,133 @@
+import type { IconType } from "@icons-pack/react-simple-icons"
+import {
+  SiAndroid,
+  SiC,
+  SiCplusplus,
+  SiCss,
+  SiCursor,
+  SiDocker,
+  SiFastapi,
+  SiFigma,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiKotlin,
+  SiLangchain,
+  SiLanggraph,
+  SiNodedotjs,
+  SiNumpy,
+  SiOpenjdk,
+  SiPandas,
+  SiPostgresql,
+  SiPython,
+  SiPytorch,
+  SiReact,
+  SiScikitlearn,
+  SiShadcnui,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+  SiVite,
+} from "@icons-pack/react-simple-icons"
+import {
+  BookOpen,
+  Bot,
+  Brain,
+  BrainCircuit,
+  ChartColumn,
+  Clock,
+  FileSpreadsheet,
+  Layers,
+  MessageSquareText,
+  Network,
+  Puzzle,
+  ScanEye,
+  ShieldCheck,
+  Shuffle,
+  Sparkles,
+  Speech,
+  Users,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
+
+export type SkillIconDescriptor =
+  | {
+      kind: "brand"
+      Icon: IconType
+      color: string
+      useCurrentColor?: boolean
+    }
+  | {
+      kind: "lucide"
+      Icon: LucideIcon
+    }
+
+const brand = (
+  Icon: IconType,
+  color: string,
+  useCurrentColor = false,
+): SkillIconDescriptor => ({
+  kind: "brand",
+  Icon,
+  color,
+  useCurrentColor,
+})
+
+const lucide = (Icon: LucideIcon): SkillIconDescriptor => ({
+  kind: "lucide",
+  Icon,
+})
+
+export const skillIcons: Record<string, SkillIconDescriptor> = {
+  Python: brand(SiPython, "#3776AB"),
+  TypeScript: brand(SiTypescript, "#3178C6"),
+  JavaScript: brand(SiJavascript, "#F7DF1E"),
+  C: brand(SiC, "#A8B9CC"),
+  "C++": brand(SiCplusplus, "#00599C"),
+  HTML: brand(SiHtml5, "#E34F26"),
+  CSS: brand(SiCss, "#663399"),
+  Android: brand(SiAndroid, "#3DDC84"),
+  Kotlin: brand(SiKotlin, "#7F52FF"),
+  Java: brand(SiOpenjdk, "#437291"),
+  React: brand(SiReact, "#61DAFB"),
+  Vite: brand(SiVite, "#646CFF"),
+  "Node.js": brand(SiNodedotjs, "#5FA04E"),
+  "Tailwind CSS": brand(SiTailwindcss, "#06B6D4"),
+  "Shadcn/ui": brand(SiShadcnui, "#000000", true),
+  Figma: brand(SiFigma, "#F24E1E"),
+  Tableau: lucide(ChartColumn),
+  "Microsoft Office": lucide(FileSpreadsheet),
+  Git: brand(SiGit, "#F05032"),
+  Docker: brand(SiDocker, "#2496ED"),
+  FastAPI: brand(SiFastapi, "#009688"),
+  PostgreSQL: brand(SiPostgresql, "#4169E1"),
+  PyTorch: brand(SiPytorch, "#EE4C2C"),
+  Pandas: brand(SiPandas, "#150458", true),
+  NumPy: brand(SiNumpy, "#013243", true),
+  "Scikit-learn": brand(SiScikitlearn, "#F7931E"),
+  Cursor: brand(SiCursor, "#000000", true),
+  LangChain: brand(SiLangchain, "#1C3C3C", true),
+  LangGraph: brand(SiLanggraph, "#1C3C3C", true),
+  "Spring Boot": brand(SiSpringboot, "#6DB33F"),
+  "Problem Solving": lucide(Puzzle),
+  "Team Collaboration": lucide(Users),
+  Responsibility: lucide(ShieldCheck),
+  Adaptability: lucide(Shuffle),
+  "Time Management": lucide(Clock),
+  "Eager to Learn": lucide(BookOpen),
+  "Fast Learner": lucide(Zap),
+  "Critical Thinking": lucide(Brain),
+  "Computer Vision": lucide(ScanEye),
+  "Large Language Models": lucide(MessageSquareText),
+  "Generative AI": lucide(Sparkles),
+  "Deep Learning": lucide(Network),
+  "Natural Language Processing": lucide(Speech),
+  "Machine Learning": lucide(BrainCircuit),
+  "AI Full Stack Development": lucide(Layers),
+  "Agentic AI": lucide(Bot),
+}
+
+export function getSkillIcon(name: string): SkillIconDescriptor | undefined {
+  return skillIcons[name]
+}
