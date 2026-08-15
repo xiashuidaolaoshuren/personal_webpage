@@ -6,6 +6,7 @@ import {
   SiCss,
   SiCursor,
   SiDocker,
+  SiFastapi,
   SiFigma,
   SiGit,
   SiHtml5,
@@ -25,6 +26,7 @@ import {
   SiSpringboot,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
 } from "@icons-pack/react-simple-icons"
 import {
   BookOpen,
@@ -90,6 +92,7 @@ export const skillIcons: Record<string, SkillIconDescriptor> = {
   Kotlin: brand(SiKotlin, "#7F52FF"),
   Java: brand(SiOpenjdk, "#437291"),
   React: brand(SiReact, "#61DAFB"),
+  Vite: brand(SiVite, "#646CFF"),
   "Node.js": brand(SiNodedotjs, "#5FA04E"),
   "Tailwind CSS": brand(SiTailwindcss, "#06B6D4"),
   "Shadcn/ui": brand(SiShadcnui, "#000000", true),
@@ -98,6 +101,7 @@ export const skillIcons: Record<string, SkillIconDescriptor> = {
   "Microsoft Office": lucide(FileSpreadsheet),
   Git: brand(SiGit, "#F05032"),
   Docker: brand(SiDocker, "#2496ED"),
+  FastAPI: brand(SiFastapi, "#009688"),
   PyTorch: brand(SiPytorch, "#EE4C2C"),
   Pandas: brand(SiPandas, "#150458"),
   NumPy: brand(SiNumpy, "#013243"),

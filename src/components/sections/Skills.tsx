@@ -2,7 +2,7 @@ import { SkillBadge } from "@/components/skill-badge"
 import { sectionEnterClass } from "@/lib/section-motion"
 import { cn } from "@/lib/utils"
 
-interface SkillCategory {
+interface TechnicalSkillRow {
   title: string
   skills: string[]
 }
@@ -13,58 +13,69 @@ interface LanguageSkill {
   level: number // 1-5
 }
 
-const skillCategories: SkillCategory[] = [
+const technicalSkillRows: TechnicalSkillRow[] = [
   {
-    title: "Programming Languages",
+    title: "Backend",
     skills: [
       "Python",
+      "FastAPI",
+      "Java",
+      "Spring Boot",
       "TypeScript",
-      "JavaScript",
+      "Node.js",
+      "SQL",
       "C",
       "C++",
-      "SQL",
-      "HTML",
-      "CSS",
-      "Android",
-      "Kotlin",
-      "Java",
     ],
   },
   {
-    title: "Tools & Frameworks",
+    title: "Web Frontend",
     skills: [
+      "TypeScript",
+      "JavaScript",
       "React",
-      "Node.js",
+      "Vite",
       "Tailwind CSS",
       "Shadcn/ui",
-      "Figma",
-      "Tableau",
-      "Microsoft Office",
-      "Git",
-      "Docker",
+      "HTML",
+      "CSS",
+    ],
+  },
+  {
+    title: "ML & Data",
+    skills: [
+      "Python",
       "PyTorch",
       "Pandas",
       "NumPy",
       "Scikit-learn",
-      "Cursor",
       "LangChain",
       "LangGraph",
-      "Spring Boot",
     ],
   },
   {
-    title: "Soft Skills",
-    skills: [
-      "Problem Solving",
-      "Team Collaboration",
-      "Responsibility",
-      "Adaptability",
-      "Time Management",
-      "Eager to Learn",
-      "Fast Learner",
-      "Critical Thinking",
-    ],
+    title: "Mobile",
+    skills: ["Android", "Kotlin"],
   },
+  {
+    title: "Tools",
+    skills: ["Git", "Figma", "Tableau", "Microsoft Office", "Cursor"],
+  },
+  {
+    title: "DevOps",
+    skills: ["Docker"],
+  },
+]
+
+const softSkills: string[] = [
+  "Problem Solving",
+  "Team Collaboration",
+  "Responsibility",
+  "Adaptability",
+  "Time Management",
+  "Eager to Learn",
+  "Fast Learner",
+  "Critical Thinking",
 ]
 
 const languages: LanguageSkill[] = [
@@ -99,27 +110,40 @@ function LanguageRating({ level }: { readonly level: number }) {
   )
 }
 
+function TechnicalSkillRow({ title, skills }: TechnicalSkillRow) {
+  return (
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
+      <h3 className="w-32 shrink-0 text-sm font-semibold sm:w-36">{title}</h3>
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <SkillBadge key={`${title}-${skill}`} name={skill} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function Skills() {
   return (
     <section className={cn("py-12", sectionEnterClass("delay-300"))}>
       <h2 className="text-3xl font-bold mb-6">Skills</h2>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {/* Technical & Soft Skills */}
-        <div className="space-y-8">
-          {skillCategories.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <SkillBadge key={skill} name={skill} />
-                ))}
-              </div>
-            </div>
-          ))}
+      <div className="space-y-3">
+        {technicalSkillRows.map((row) => (
+          <TechnicalSkillRow key={row.title} {...row} />
+        ))}
+      </div>
+
+      <div className="mt-10 grid gap-8 md:grid-cols-2">
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Soft Skills</h3>
+          <div className="flex flex-wrap gap-2">
+            {softSkills.map((skill) => (
+              <SkillBadge key={skill} name={skill} />
+            ))}
+          </div>
         </div>
 
-        {/* Language proficiency & Interested Fields */}
         <div className="space-y-8">
           <div>
             <h3 className="text-xl font-semibold mb-4">Language Proficiency</h3>
