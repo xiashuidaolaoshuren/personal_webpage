@@ -134,38 +134,14 @@ export function Skills() {
         ))}
       </div>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Soft Skills</h3>
-          <div className="flex flex-wrap gap-2">
-            {softSkills.map((skill) => (
-              <SkillBadge key={skill} name={skill} />
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-8">
+      <div className="mt-10 space-y-8">
+        <div className="grid gap-8 md:grid-cols-2">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Language Proficiency</h3>
-            <div className="bg-card rounded-lg border p-6">
-              <div className="grid gap-6">
-                {languages.map((lang) => (
-                  <div
-                    key={lang.name}
-                    className="flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={`https://flagcdn.com/${lang.code}.svg`}
-                        alt={`${lang.name} flag`}
-                        className="w-6 h-4 object-cover rounded-sm shadow-sm"
-                      />
-                      <span className="font-medium">{lang.name}</span>
-                    </div>
-                    <LanguageRating level={lang.level} />
-                  </div>
-                ))}
-              </div>
+            <h3 className="text-xl font-semibold mb-4">Soft Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {softSkills.map((skill) => (
+                <SkillBadge key={skill} name={skill} />
+              ))}
             </div>
           </div>
 
@@ -174,6 +150,30 @@ export function Skills() {
             <div className="flex flex-wrap gap-2">
               {InterestedFields.map((field) => (
                 <SkillBadge key={field} name={field} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Language Proficiency</h3>
+          <div className="bg-card rounded-lg border p-6">
+            <div className="grid gap-6 sm:grid-cols-3">
+              {languages.map((lang) => (
+                <div
+                  key={lang.name}
+                  className="flex items-center justify-between gap-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={`https://flagcdn.com/${lang.code}.svg`}
+                      alt={`${lang.name} flag`}
+                      className="w-6 h-4 object-cover rounded-sm shadow-sm"
+                    />
+                    <span className="font-medium">{lang.name}</span>
+                  </div>
+                  <LanguageRating level={lang.level} />
+                </div>
               ))}
             </div>
           </div>
