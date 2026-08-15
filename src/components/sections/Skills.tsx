@@ -23,7 +23,6 @@ const technicalSkillRows: TechnicalSkillRow[] = [
       "Spring Boot",
       "TypeScript",
       "Node.js",
-      "SQL",
       "C",
       "C++",
     ],
@@ -40,6 +39,10 @@ const technicalSkillRows: TechnicalSkillRow[] = [
       "HTML",
       "CSS",
     ],
+  },
+  {
+    title: "Database",
+    skills: ["PostgreSQL"],
   },
   {
     title: "ML & Data",
