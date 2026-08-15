@@ -1,5 +1,4 @@
 import { SkillBadge } from "@/components/skill-badge"
-import { Badge } from "@/components/ui/badge"
 import { sectionEnterClass } from "@/lib/section-motion"
 import { cn } from "@/lib/utils"
 
@@ -150,13 +149,7 @@ export function Skills() {
             <h3 className="text-xl font-semibold mb-4">Interested Fields</h3>
             <div className="flex flex-wrap gap-2">
               {InterestedFields.map((field) => (
-                <Badge
-                  key={field}
-                  variant="secondary"
-                  className="border-primary/20 bg-primary/10 py-1 px-3 text-sm font-medium text-primary hover:bg-primary/15"
-                >
-                  {field}
-                </Badge>
+                <SkillBadge key={field} name={field} />
               ))}
             </div>
           </div>

@@ -28,14 +28,22 @@ import {
 } from "@icons-pack/react-simple-icons"
 import {
   BookOpen,
+  Bot,
   Brain,
+  BrainCircuit,
   ChartColumn,
   Clock,
   Database,
   FileSpreadsheet,
+  Layers,
+  MessageSquareText,
+  Network,
   Puzzle,
+  ScanEye,
   ShieldCheck,
   Shuffle,
+  Sparkles,
+  Speech,
   Users,
   Zap,
   type LucideIcon,
@@ -106,6 +114,14 @@ export const skillIcons: Record<string, SkillIconDescriptor> = {
   "Eager to Learn": lucide(BookOpen),
   "Fast Learner": lucide(Zap),
   "Critical Thinking": lucide(Brain),
+  "Computer Vision": lucide(ScanEye),
+  "Large Language Models": lucide(MessageSquareText),
+  "Generative AI": lucide(Sparkles),
+  "Deep Learning": lucide(Network),
+  "Natural Language Processing": lucide(Speech),
+  "Machine Learning": lucide(BrainCircuit),
+  "AI Full Stack Development": lucide(Layers),
+  "Agentic AI": lucide(Bot),
 }
 
 export function getSkillIcon(name: string): SkillIconDescriptor | undefined {
