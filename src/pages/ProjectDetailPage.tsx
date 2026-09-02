@@ -78,12 +78,7 @@ export function ProjectDetailPage() {
     );
   }
 
-  const gallery: ProjectEvidence[] =
-    project.evidence && project.evidence.length > 0
-      ? project.evidence
-      : project.image
-        ? [{ src: project.image, alt: project.title }]
-        : [];
+  const gallery: ProjectEvidence[] = project.evidence ?? [];
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">

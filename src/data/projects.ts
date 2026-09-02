@@ -77,6 +77,41 @@ export interface ProjectItem {
 
 export const PROJECTS: ProjectItem[] = [
   {
+    id: "personal-webpage",
+    title: "Personal Webpage",
+    status: "Maintainance",
+    image: "/images/personal-webpage-cover.png",
+    summary:
+      "This GitHub Pages portfolio: React 19, Vite, TypeScript, Tailwind 4, and shadcn/ui with ambient section framing, sidebar identity, data-driven project and experience pages, light/dark theme, and SPA routing for recruiter-facing bio and project write-ups.",
+    overview:
+      "I built this site to present my background and project work in one place instead of scattering PDFs, README links, and ad hoc screenshots. It is deployed on GitHub Pages as a single-page application with routes for home, projects, project detail, and experience detail. Content lives in typed data files so I can extend write-ups without restructuring pages. The visual direction follows an ambient tech layering spec—quiet grids and glows, section framing, and a sidebar that anchors navigation—so the site feels intentional without reading like a marketing landing page.",
+    problem:
+      "A static CV alone does not carry long-form project context, evidence galleries, or benchmarks, and listing seven repositories on GitHub does not tell a coherent story for recruiters or collaborators. I needed a readable, trustworthy front door that could grow as I shipped more work, stay cheap to host, and remain comfortable to maintain as a solo developer.",
+    approach:
+      "The stack is React 19 with Vite 7 and TypeScript. Styling uses Tailwind CSS 4 and shadcn/ui primitives; routing uses React Router for `/`, `/projects`, `/projects/:id`, and `/experience/:id`. Project and experience content is centralized in typed data modules under `src/data/`. GitHub Pages deployment relies on a production build plus an SPA 404 script so client-side routes resolve correctly. Layout combines a sidebar with contact links, theme toggle, and framed sections on the home page (hero, bio, education, jobs, skills). Project cards link to detail pages with optional evidence and benchmark charts; this portfolio entry intentionally omits a self-referential evidence gallery because the live site is the demo.",
+    features: [
+      "React SPA with GitHub Pages deployment and SPA-friendly 404 handling",
+      "Sidebar navigation, social/contact links, and light/dark theme toggle with persisted preference",
+      "Home sections: hero, bio, education, job experience, and skills",
+      "Data-driven project index and detail pages with tech stack badges and GitHub links",
+      "Project detail support for image/video/YouTube evidence and optional benchmark charts",
+      "Experience detail routes with structured content blocks",
+      "CV download from the hero; ambient background and section framing per the visual design spec",
+    ],
+    results:
+      "The site is a living portfolio rather than a shipped product—status Maintainance reflects ongoing content and visual polish such as project-card enhancements. The main lessons were treating content as data (easier to add projects without new routes), keeping decoration subordinate to readability for a technical audience, and accepting that the deployed site itself is the best evidence for this entry—no duplicate screenshots on its own detail page. Future work stays incremental: richer project cards, tighter visual consistency, and occasional copy updates as repositories evolve.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/xiashuidaolaoshuren.github.io",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "React Router",
+      "Lucide",
+    ],
+  },
+  {
     id: "llm-hallucination-fyp",
     title: "LLM Hallucination Mitigation (Final Year Project)",
     status: "Completed",
