@@ -115,7 +115,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "llm-hallucination-fyp",
     title: "LLM Hallucination Mitigation (Final Year Project)",
     status: "Completed",
-    image: "/images/fyp.jpg",
+    image: "/images/fyp-cover.png",
     summary:
       "A Generator–Retriever–Verifier–Mitigator pipeline for citation-grounded RAG that fuses trainless zero-shot signals—token entropy, retrieval-grounded heuristics, DeBERTa-v3 NLI, and self-agreement—with rule-based aggregation and mitigation (re-rank, re-prompt, filter), evaluated on RAGTruth and CiteBench-style citation workflows.",
     overview:
@@ -239,7 +239,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "allergy-guard",
     title: "AllergyGuard",
     status: "Completed",
-    image: "/images/allergy_guard-1.png",
+    image: "/images/allergy_guard-cover.png",
     summary:
       "A native Android app that uses CameraX live scanning with ML Kit on-device text recognition and translation, length-aware fuzzy allergen matching against Room-backed profiles and synonyms, plus scan history with Maps-backed location context and offline-first translation models.",
     overview:
@@ -306,7 +306,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "gta-v-alpr",
     title: "GTA V ALPR",
     status: "Completed",
-    image: "/images/gta_v_alpr-1.jpg",
+    image: "/images/gta_v_alpr-cover.png",
     summary:
       "A real-time ALPR stack on GTA V gameplay video—YOLOv8 plate detection fine-tuned on my in-domain annotations, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI—with clear gains from synthetic-data fine-tuning over a real-world pretrained baseline.",
     overview:
@@ -388,7 +388,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "automatic-chord-recognition",
     title: "Audio Chord Estimation",
     status: "Completed",
-    image: "/images/chord_recognition-1.png",
+    image: "/images/chord_recognition-cover.png",
     summary:
       "MIREX 2024–style audio chord estimation simplified to chord roots: chromagram features from Beatles, Queen, and Carole King material with Isophonics annotations, comparing Random Forest to a BiLSTM.",
     overview:
@@ -466,7 +466,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "hand-gesture-music-controller",
     title: "Sound Synthesis Using Computer Vision",
     status: "Completed",
-    image: "/images/hand_gesture-1.jpg",
+    image: "/images/hand_gesture-cover.png",
     summary:
       "Group project: we train a hand-gesture recognizer in Python (MediaPipe landmarks, scikit-learn, Joblib), stream parameters over OSC, and drive real-time synthesis in SuperCollider—including continuous pitch, discrete MIDI-style notes, and a layered composing mode.",
     overview:
