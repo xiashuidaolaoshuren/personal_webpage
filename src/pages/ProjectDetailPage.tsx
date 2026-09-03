@@ -9,7 +9,7 @@ import { getProjectById, type ProjectEvidence } from "@/data/projects";
 import { sectionEnterClass } from "@/lib/section-motion";
 import { statusBadgeVariant } from "@/lib/project-status";
 import { projectCategoryLabel } from "@/lib/project-categories";
-import { cn } from "@/lib/utils";
+import { cn, pageContentShellClassName } from "@/lib/utils";
 
 /** Shared styling for text links back to the projects index (header + footer). */
 const projectsNavLinkClassName =
@@ -56,7 +56,7 @@ export function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+      <div className={cn(pageContentShellClassName, "py-16")}>
         <div
           className={cn(
             "section-projects-frame px-6 py-12 text-center sm:px-10",
@@ -83,7 +83,7 @@ export function ProjectDetailPage() {
   const gallery: ProjectEvidence[] = project.evidence ?? [];
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+    <div className={pageContentShellClassName}>
       <article className={cn("py-12", sectionEnterClass())}>
         <div className="section-projects-frame px-4 py-8 sm:px-6 sm:py-10">
           <Link

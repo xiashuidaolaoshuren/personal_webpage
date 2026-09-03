@@ -3,10 +3,11 @@ import { Bio } from "@/components/sections/Bio";
 import { Education } from "@/components/sections/Education";
 import {Job_experience} from "@/components/sections/Job_experience";
 import { Skills } from "@/components/sections/Skills";
+import { pageContentShellClassName } from "@/lib/utils";
 
 export function HomePage() {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+    <div className={pageContentShellClassName}>
       <Hero />
       <div id="bio"><Bio /></div>
       <div id="education"><Education /></div>

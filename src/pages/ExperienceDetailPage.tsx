@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getExperienceById, resolveMapEmbedQuery } from "@/data/experience";
 import { sectionEnterClass } from "@/lib/section-motion";
-import { cn } from "@/lib/utils";
+import { cn, pageContentShellClassName } from "@/lib/utils";
 
 const backNavLinkClassName =
   "inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary";
@@ -60,7 +60,7 @@ export function ExperienceDetailPage() {
 
   if (!experience) {
     return (
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+      <div className={cn(pageContentShellClassName, "py-16")}>
         <div
           className={cn(
             "section-projects-frame px-6 py-12 text-center sm:px-10",
@@ -107,7 +107,7 @@ export function ExperienceDetailPage() {
   );
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+    <div className={pageContentShellClassName}>
       <article className={cn("py-12", sectionEnterClass())}>
         <div className="section-projects-frame px-4 py-8 sm:px-6 sm:py-10">
           <Link to={backTo} className={cn(backNavLinkClassName, "mb-8")}>

@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react"
 import { useLocation } from "react-router-dom"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { SiteFooter } from "@/components/SiteFooter"
 import { cn } from "@/lib/utils"
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -18,7 +19,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <AppSidebar />
       <SidebarInset
         className={cn(
-          "relative isolate h-svh min-h-0 flex-1 overflow-x-hidden overflow-y-auto [scrollbar-gutter:stable]",
+          "relative isolate flex h-svh min-h-0 flex-1 flex-col overflow-x-hidden overflow-y-auto [scrollbar-gutter:stable]",
           "ambient-main-surface",
           projectsAmbient && "ambient-main-surface--projects"
         )}
@@ -31,7 +32,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           className="ambient-motion-layer pointer-events-none absolute -right-[12%] -top-[8%] h-[min(45vh,380px)] w-[min(72vw,480px)] rounded-full bg-primary/10 blur-3xl"
           aria-hidden
         />
-        <div className="relative z-0">{children}</div>
+        <div className="relative z-0 flex min-h-0 flex-1 flex-col">
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )
