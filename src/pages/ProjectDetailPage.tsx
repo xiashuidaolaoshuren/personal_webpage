@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ProjectBenchmarkChart } from "@/components/project/ProjectBenchmarkChart";
 import { getProjectById, type ProjectEvidence } from "@/data/projects";
 import { sectionEnterClass } from "@/lib/section-motion";
+import { statusBadgeVariant } from "@/lib/project-status";
+import { projectCategoryLabel } from "@/lib/project-categories";
 import { cn } from "@/lib/utils";
 
 /** Shared styling for text links back to the projects index (header + footer). */
@@ -94,17 +96,15 @@ export function ProjectDetailPage() {
 
           <header className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
             <div className="min-w-0 flex-1">
-              <p className="section-eyebrow mb-2 text-left sm:pl-0.5">Project</p>
+              <p className="section-eyebrow mb-2 text-left sm:pl-0.5">
+                {projectCategoryLabel(project.category)}
+              </p>
               <div className="section-divider-gradient section-divider-gradient--start mb-6" aria-hidden />
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {project.title}
               </h1>
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <Badge
-                  variant={
-                    project.status === "Completed" ? "default" : "secondary"
-                  }
-                >
+                <Badge variant={statusBadgeVariant(project.status)}>
                   {project.status}
                 </Badge>
                 {project.techStack?.map((tech) => (

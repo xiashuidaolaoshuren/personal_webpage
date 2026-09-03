@@ -1,3 +1,5 @@
+import type { ProjectCategory } from "@/lib/project-categories";
+
 export type ProjectStatus = "Completed" | "In Progress" | "Maintainance";
 
 /** Screenshot or diagram: `src` is under `public/` (e.g. `/images/…`). */
@@ -58,6 +60,7 @@ export interface ProjectBenchmark {
 export interface ProjectItem {
   id: string;
   title: string;
+  category: ProjectCategory;
   status: ProjectStatus;
   image?: string;
   /** Short text used on listing cards */
@@ -75,10 +78,12 @@ export interface ProjectItem {
   benchmarks?: ProjectBenchmark[];
 }
 
-export const PROJECTS: ProjectItem[] = [
+export const PROJECTS: ProjectItem[] = (() => {
+  const projects: ProjectItem[] = [
   {
     id: "personal-webpage",
     title: "Personal Webpage",
+    category: "full-stack",
     status: "Maintainance",
     image: "/images/personal-webpage-cover.png",
     summary:
@@ -114,6 +119,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "llm-hallucination-fyp",
     title: "LLM Hallucination Mitigation (Final Year Project)",
+    category: "llm-agents",
     status: "Completed",
     image: "/images/fyp-cover.png",
     summary:
@@ -238,6 +244,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "allergy-guard",
     title: "AllergyGuard",
+    category: "computer-vision",
     status: "Completed",
     image: "/images/allergy_guard-cover.png",
     summary:
@@ -305,6 +312,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "gta-v-alpr",
     title: "GTA V ALPR",
+    category: "computer-vision",
     status: "Completed",
     image: "/images/gta_v_alpr-cover.png",
     summary:
@@ -387,6 +395,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "automatic-chord-recognition",
     title: "Audio Chord Estimation",
+    category: "audio-music",
     status: "Completed",
     image: "/images/chord_recognition-cover.png",
     summary:
@@ -465,6 +474,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "hand-gesture-music-controller",
     title: "Sound Synthesis Using Computer Vision",
+    category: "computer-vision",
     status: "Completed",
     image: "/images/hand_gesture-cover.png",
     summary:
@@ -515,7 +525,8 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "agentic-ai-news-agent",
     title: "AI News Research Agent",
-    status: "Completed",
+    category: "llm-agents",
+    status: "Maintainance",
     image: "/images/ai-news-agent-cover.png",
     summary:
       "Local-first Python agent that aggregates AI news from Juya, Hugging Face, GitHub, Zhihu, and Bilibili; ranks candidates; summarizes with an LLM; persists runs to SQLite; and exposes CLI, Gradio chat with tool-calling follow-ups, history search, and OpenClaw skills.",
@@ -570,7 +581,8 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "focusflow-ai",
     title: "FocusFlow AI",
-    status: "Completed",
+    category: "full-stack",
+    status: "Maintainance",
     image: "/images/focusflow-ai-cover.png",
     summary:
       "Java-first full-stack learning project: Spring Boot backend and React SPA for task management and AI-assisted daily plan generation, with session auth, CSRF-protected APIs, Flyway migrations, PostgreSQL via Docker, must-include ranking rules, and an OpenAI-compatible plan client.",
@@ -625,6 +637,22 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
 ];
+
+  const displayOrder: ProjectItem["id"][] = [
+    "llm-hallucination-fyp",
+    "agentic-ai-news-agent",
+    "gta-v-alpr",
+    "allergy-guard",
+    "hand-gesture-music-controller",
+    "automatic-chord-recognition",
+    "focusflow-ai",
+    "personal-webpage",
+  ];
+
+  return displayOrder.map(
+    (id) => projects.find((project) => project.id === id)!,
+  );
+})();
 
 export function getProjectById(id: string): ProjectItem | undefined {
   return PROJECTS.find((p) => p.id === id);
