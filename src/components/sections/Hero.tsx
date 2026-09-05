@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button"
+import { DownloadCvButton } from "@/components/DownloadCvButton"
 import { sectionEnterClass } from "@/lib/section-motion"
 import { cn } from "@/lib/utils"
-import { Download } from "lucide-react"
 
 export function Hero() {
   return (
@@ -23,20 +22,7 @@ export function Hero() {
           {" "}| Computer Vision & LLM Enthusiast
         </p>
         <div className="flex justify-center">
-          <Button
-            asChild
-            variant="outline"
-            className={cn(
-              "justify-center gap-2 border-primary/25 bg-primary/10 text-primary shadow-sm",
-              "hover:border-primary/40 hover:bg-primary/20 hover:text-primary",
-              "focus-visible:ring-2 focus-visible:ring-ring"
-            )}
-          >
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download>
-              <Download className="size-5 shrink-0" aria-hidden />
-              Download CV
-            </a>
-          </Button>
+          <DownloadCvButton />
         </div>
       </div>
     </section>

@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { ProjectBenchmarkChart } from "@/components/project/ProjectBenchmarkChart";
 import { getProjectById, type ProjectEvidence } from "@/data/projects";
 import { sectionEnterClass } from "@/lib/section-motion";
-import { cn } from "@/lib/utils";
+import { statusBadgeVariant } from "@/lib/project-status";
+import { projectCategoryLabel } from "@/lib/project-categories";
+import { cn, pageContentShellClassName } from "@/lib/utils";
 
 /** Shared styling for text links back to the projects index (header + footer). */
 const projectsNavLinkClassName =
@@ -54,7 +56,7 @@ export function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+      <div className={cn(pageContentShellClassName, "py-16")}>
         <div
           className={cn(
             "section-projects-frame px-6 py-12 text-center sm:px-10",
@@ -78,15 +80,10 @@ export function ProjectDetailPage() {
     );
   }
 
-  const gallery: ProjectEvidence[] =
-    project.evidence && project.evidence.length > 0
-      ? project.evidence
-      : project.image
-        ? [{ src: project.image, alt: project.title }]
-        : [];
+  const gallery: ProjectEvidence[] = project.evidence ?? [];
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+    <div className={pageContentShellClassName}>
       <article className={cn("py-12", sectionEnterClass())}>
         <div className="section-projects-frame px-4 py-8 sm:px-6 sm:py-10">
           <Link
@@ -99,17 +96,15 @@ export function ProjectDetailPage() {
 
           <header className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
             <div className="min-w-0 flex-1">
-              <p className="section-eyebrow mb-2 text-left sm:pl-0.5">Project</p>
+              <p className="section-eyebrow mb-2 text-left sm:pl-0.5">
+                {projectCategoryLabel(project.category)}
+              </p>
               <div className="section-divider-gradient section-divider-gradient--start mb-6" aria-hidden />
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {project.title}
               </h1>
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <Badge
-                  variant={
-                    project.status === "Completed" ? "default" : "secondary"
-                  }
-                >
+                <Badge variant={statusBadgeVariant(project.status)}>
                   {project.status}
                 </Badge>
                 {project.techStack?.map((tech) => (

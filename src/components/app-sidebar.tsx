@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Home, FolderGit2, Mail, Linkedin, Github, Phone, Instagram, Download } from "lucide-react"
+import { Home, FolderGit2, Mail, Linkedin, Github, Phone, Instagram } from "lucide-react"
 import { NavLink, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import {
@@ -16,6 +16,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import { DownloadCvButton } from "@/components/DownloadCvButton"
 import { ThemeToggle } from "@/components/ThemeToggle"
 
 // Menu items.
@@ -132,16 +133,7 @@ export function AppSidebar() {
                 <span className="text-muted-foreground text-[15px]">+852 66710279</span>
               </div>
 
-              <Button
-                asChild
-                variant="outline"
-                className="w-full justify-start gap-2 border-primary/25 bg-primary/10 text-primary shadow-sm hover:border-primary/40 hover:bg-primary/20 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download>
-                  <Download className="size-5 shrink-0" aria-hidden />
-                  Download CV
-                </a>
-              </Button>
+              <DownloadCvButton className="w-full justify-start" />
               
               {/* Social buttons in a row */}
               <div className="flex flex-wrap gap-3 pt-2">

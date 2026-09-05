@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { statusBadgeVariant } from "@/lib/project-status";
 import type { ProjectItem } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -59,11 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   aria-hidden
                 />
                 <span className="sr-only">View project details</span>
-                <Badge
-                  variant={
-                    project.status === "Completed" ? "default" : "secondary"
-                  }
-                >
+                <Badge variant={statusBadgeVariant(project.status)}>
                   {project.status}
                 </Badge>
               </div>

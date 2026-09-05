@@ -1,3 +1,5 @@
+import type { ProjectCategory } from "@/lib/project-categories";
+
 export type ProjectStatus = "Completed" | "In Progress" | "Maintainance";
 
 /** Screenshot or diagram: `src` is under `public/` (e.g. `/images/…`). */
@@ -58,6 +60,7 @@ export interface ProjectBenchmark {
 export interface ProjectItem {
   id: string;
   title: string;
+  category: ProjectCategory;
   status: ProjectStatus;
   image?: string;
   /** Short text used on listing cards */
@@ -75,12 +78,50 @@ export interface ProjectItem {
   benchmarks?: ProjectBenchmark[];
 }
 
-export const PROJECTS: ProjectItem[] = [
+export const PROJECTS: ProjectItem[] = (() => {
+  const projects: ProjectItem[] = [
+  {
+    id: "personal-webpage",
+    title: "Personal Webpage",
+    category: "full-stack",
+    status: "Maintainance",
+    image: "/images/personal-webpage-cover.png",
+    summary:
+      "This GitHub Pages portfolio: React 19, Vite, TypeScript, Tailwind 4, and shadcn/ui with ambient section framing, sidebar identity, data-driven project and experience pages, light/dark theme, and SPA routing for recruiter-facing bio and project write-ups.",
+    overview:
+      "I built this site to present my background and project work in one place instead of scattering PDFs, README links, and ad hoc screenshots. It is deployed on GitHub Pages as a single-page application with routes for home, projects, project detail, and experience detail. Content lives in typed data files so I can extend write-ups without restructuring pages. The visual direction follows an ambient tech layering spec—quiet grids and glows, section framing, and a sidebar that anchors navigation—so the site feels intentional without reading like a marketing landing page.",
+    problem:
+      "A static CV alone does not carry long-form project context, evidence galleries, or benchmarks, and listing seven repositories on GitHub does not tell a coherent story for recruiters or collaborators. I needed a readable, trustworthy front door that could grow as I shipped more work, stay cheap to host, and remain comfortable to maintain as a solo developer.",
+    approach:
+      "The stack is React 19 with Vite 7 and TypeScript. Styling uses Tailwind CSS 4 and shadcn/ui primitives; routing uses React Router for `/`, `/projects`, `/projects/:id`, and `/experience/:id`. Project and experience content is centralized in typed data modules under `src/data/`. GitHub Pages deployment relies on a production build plus an SPA 404 script so client-side routes resolve correctly. Layout combines a sidebar with contact links, theme toggle, and framed sections on the home page (hero, bio, education, jobs, skills). Project cards link to detail pages with optional evidence and benchmark charts; this portfolio entry intentionally omits a self-referential evidence gallery because the live site is the demo.",
+    features: [
+      "React SPA with GitHub Pages deployment and SPA-friendly 404 handling",
+      "Sidebar navigation, social/contact links, and light/dark theme toggle with persisted preference",
+      "Home sections: hero, bio, education, job experience, and skills",
+      "Data-driven project index and detail pages with tech stack badges and GitHub links",
+      "Project detail support for image/video/YouTube evidence and optional benchmark charts",
+      "Experience detail routes with structured content blocks",
+      "CV download from the hero; ambient background and section framing per the visual design spec",
+    ],
+    results:
+      "The site is a living portfolio rather than a shipped product—status Maintainance reflects ongoing content and visual polish such as project-card enhancements. The main lessons were treating content as data (easier to add projects without new routes), keeping decoration subordinate to readability for a technical audience, and accepting that the deployed site itself is the best evidence for this entry—no duplicate screenshots on its own detail page. Future work stays incremental: richer project cards, tighter visual consistency, and occasional copy updates as repositories evolve.",
+    repoUrl: "https://github.com/xiashuidaolaoshuren/xiashuidaolaoshuren.github.io",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "React Router",
+      "Lucide",
+    ],
+  },
   {
     id: "llm-hallucination-fyp",
     title: "LLM Hallucination Mitigation (Final Year Project)",
+    category: "llm-agents",
     status: "Completed",
-    image: "/images/fyp.jpg",
+    image: "/images/fyp-cover.png",
     summary:
       "A Generator–Retriever–Verifier–Mitigator pipeline for citation-grounded RAG that fuses trainless zero-shot signals—token entropy, retrieval-grounded heuristics, DeBERTa-v3 NLI, and self-agreement—with rule-based aggregation and mitigation (re-rank, re-prompt, filter), evaluated on RAGTruth and CiteBench-style citation workflows.",
     overview:
@@ -203,8 +244,9 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "allergy-guard",
     title: "AllergyGuard",
+    category: "computer-vision",
     status: "Completed",
-    image: "/images/allergy_guard-1.png",
+    image: "/images/allergy_guard-cover.png",
     summary:
       "A native Android app that uses CameraX live scanning with ML Kit on-device text recognition and translation, length-aware fuzzy allergen matching against Room-backed profiles and synonyms, plus scan history with Maps-backed location context and offline-first translation models.",
     overview:
@@ -270,8 +312,9 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "gta-v-alpr",
     title: "GTA V ALPR",
+    category: "computer-vision",
     status: "Completed",
-    image: "/images/gta_v_alpr-1.jpg",
+    image: "/images/gta_v_alpr-cover.png",
     summary:
       "A real-time ALPR stack on GTA V gameplay video—YOLOv8 plate detection fine-tuned on my in-domain annotations, PaddleOCR recognition, ByteTrack tracking, and a Streamlit GUI—with clear gains from synthetic-data fine-tuning over a real-world pretrained baseline.",
     overview:
@@ -352,8 +395,9 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "automatic-chord-recognition",
     title: "Audio Chord Estimation",
+    category: "audio-music",
     status: "Completed",
-    image: "/images/chord_recognition-1.png",
+    image: "/images/chord_recognition-cover.png",
     summary:
       "MIREX 2024–style audio chord estimation simplified to chord roots: chromagram features from Beatles, Queen, and Carole King material with Isophonics annotations, comparing Random Forest to a BiLSTM.",
     overview:
@@ -430,8 +474,9 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "hand-gesture-music-controller",
     title: "Sound Synthesis Using Computer Vision",
+    category: "computer-vision",
     status: "Completed",
-    image: "/images/hand_gesture-1.jpg",
+    image: "/images/hand_gesture-cover.png",
     summary:
       "Group project: we train a hand-gesture recognizer in Python (MediaPipe landmarks, scikit-learn, Joblib), stream parameters over OSC, and drive real-time synthesis in SuperCollider—including continuous pitch, discrete MIDI-style notes, and a layered composing mode.",
     overview:
@@ -480,27 +525,46 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "agentic-ai-news-agent",
     title: "AI News Research Agent",
-    status: "In Progress",
+    category: "llm-agents",
+    status: "Maintainance",
+    image: "/images/ai-news-agent-cover.png",
     summary:
-      "Local-first Python agent that collects AI news from GitHub and Bilibili, ranks candidates, summarizes with an LLM, persists runs to SQLite, and exposes a CLI plus optional Gradio chat UI.",
+      "Local-first Python agent that aggregates AI news from Juya, Hugging Face, GitHub, Zhihu, and Bilibili; ranks candidates; summarizes with an LLM; persists runs to SQLite; and exposes CLI, Gradio chat with tool-calling follow-ups, history search, and OpenClaw skills.",
     overview:
-      "This side project is a local-first research assistant for on-demand AI news digests. A LangGraph workflow orchestrates connectors, ranking, and summarization; results land in SQLite so follow-up chat can reference sources, rankings, and caveats. Milestone 1 ships the full local digest MVP: connectors, storage, CLI, Gradio UI, and tests—without cloud deployment or scheduled runs.",
+      "This side project is a local-first research assistant for on-demand AI news digests. A LangGraph workflow orchestrates connectors, ranking, and summarization; results land in SQLite so follow-up chat can reference sources, rankings, and caveats. Beyond the original MVP, I added a bounded tool-calling layer for open-ended follow-ups, opt-in ecosystem connectors (Hugging Face trending models and Zhihu practitioner search), SQLite history search, and OpenClaw skills that delegate digest generation to the same CLI boundary—without cloud deployment or scheduled runs.",
     problem:
-      "Staying current on AI tooling and research means checking many scattered sources—repos, videos, and forums—with uneven signal and no single place to compare what matters today. I wanted a reproducible pipeline that could aggregate conservative sources, rank what is worth reading, and summarize with traceable citations rather than one-off manual browsing.",
+      "Staying current on AI tooling and research means checking many scattered sources—daily bulletins, repos, Hub trends, practitioner forums, and videos—with uneven signal and no single place to compare what matters today. I wanted a reproducible pipeline that could aggregate conservative sources, rank what is worth reading, summarize with traceable citations, and support follow-up inspection rather than one-off manual browsing.",
     approach:
-      "The stack is Python 3.11+ with uv for dependency management. Connectors pull from GitHub and metadata-first Bilibili APIs; a ranking stage filters and orders candidates before an OpenAI-compatible LLM (or deterministic fakes offline) writes the digest. LangGraph wires the workflow; DigestStore persists runs to SQLite. Intent parsing in chat supports targeted digests from repo or video URLs. The CLI (`ai-news-agent`) and Gradio app share the same source registry and structured logging, with session-sticky source toggles and natural-language overrides for single-run connector selection.",
+      "The stack is Python 3.11+ with uv. Connectors are opt-in behind a shared registry: Juya is the default bare digest (website RSS plus per-issue markdown enrichment); GitHub, Hugging Face, Zhihu, and Bilibili join when explicitly selected. A ranking stage filters and orders candidates before an OpenAI-compatible LLM (or deterministic fakes offline) writes the digest. LangGraph wires the collect → rank → summarize workflow; DigestStore persists runs to SQLite. Gradio and the CLI share ChatService routing: digest requests run the deterministic workflow with streaming progress; structured follow-ups answer from persisted traces; open-ended questions use a bounded tool agent when configured. Intent parsing supports targeted digests from repo, video, or Juya issue URLs. OpenClaw skills call a warm local service through a thin adapter so channel prompts map to the same CLI flags.",
     features: [
-      "LangGraph workflow: collect → rank → summarize with persisted traces in SQLite",
-      "GitHub and Bilibili connectors with reciprocal ranking and topic/timeframe filters",
+      "LangGraph digest workflow: collect → rank → summarize with persisted traces in SQLite",
+      "Connector registry: Juya default; opt-in Hugging Face trending models, GitHub momentum ranking, Zhihu practitioner search, and metadata-first Bilibili",
       "OpenAI-compatible summarization plus offline `--fake` mode for deterministic smoke tests",
-      "CLI entrypoint and Gradio chat UI with digest progress streaming and example prompts",
-      "Chat follow-ups: list sources, top pick, caveats, and LLM replies when configured",
-      "Targeted digests from GitHub repo URLs, Bilibili video URLs, or channel hints via intent parsing",
-      "Structured logging to terminal and rotating file; shared connector registry across CLI and UI",
-      "pytest suite including MVP smoke tests and optional live Bilibili connector checks",
+      "CLI (`ai-news-agent`) with digest, history-search, history-show, and OpenClaw subcommands",
+      "Gradio chat UI: session-sticky source toggles, streaming workflow progress, example prompts",
+      "Structured follow-ups from SQLite traces: sources, study-first ranking, confidence caveats",
+      "Bounded LangGraph tool agent for open-ended and connector-search follow-ups in live Gradio mode",
+      "SQLite history search and reopen by `d<digest_id>:r<rank>` token without live connector calls",
+      "Targeted digests from GitHub repo URLs, Bilibili video/channel hints, and Juya issue URLs via intent parsing",
+      "OpenClaw digest and follow-up skills delegating to the warm local service adapter",
+      "pytest suite including MVP smoke tests and optional live connector checks",
     ],
     results:
-      "Milestone 1 is complete: the agent runs end-to-end locally with tests passing in offline fake mode. Bilibili remains metadata-first (no transcript understanding), which limits confidence on thin items—a documented MVP trade-off. Next milestones may add OpenClaw integration, scheduling, and additional connectors; benchmarks and portfolio evidence are planned for a later pass.",
+      "The agent runs end-to-end locally with tests passing in offline fake mode and live paths when API keys are configured. The main engineering lesson was keeping one digest boundary while layering chat modes on top: deterministic workflow for collection, structured SQLite answers for inspection, and a capped tool agent only where open-ended questions need it. Connectors stay honest about limits—Bilibili is metadata-first at digest time, Zhihu uses official search only, and Hugging Face trending reflects Hub popularity rather than model quality. Scheduled runs, cloud deployment, and vector RAG remain out of scope; OpenClaw handles structured follow-up only, with open-ended Q&A still in Gradio.",
+    evidence: [
+      {
+        src: "/images/ai-news-agent-1.png",
+        alt: "Gradio chat UI after a fake AI news digest with source toggles visible",
+        caption:
+          "Gradio chat: fake-mode digest with session source toggles and streamed workflow output.",
+      },
+      {
+        src: "/images/ai-news-agent-2.png",
+        alt: "Structured follow-up showing persisted digest sources in the Gradio chat UI",
+        caption:
+          "Structured follow-up: instant source inspection from persisted SQLite traces.",
+      },
+    ],
     repoUrl: "https://github.com/xiashuidaolaoshuren/agentic_ai_proj",
     techStack: [
       "Python",
@@ -509,45 +573,86 @@ export const PROJECTS: ProjectItem[] = [
       "Gradio",
       "SQLite",
       "OpenAI API",
+      "uv",
       "pytest",
+      "OpenClaw",
     ],
   },
   {
     id: "focusflow-ai",
     title: "FocusFlow AI",
-    status: "In Progress",
+    category: "full-stack",
+    status: "Maintainance",
+    image: "/images/focusflow-ai-cover.png",
     summary:
-      "Java-first learning project: a Spring Boot backend for task management and AI-assisted daily plan generation, with session auth, CSRF-protected APIs, PostgreSQL via Docker, and an OpenAI-compatible plan client—Milestone 1 backend only.",
+      "Java-first full-stack learning project: Spring Boot backend and React SPA for task management and AI-assisted daily plan generation, with session auth, CSRF-protected APIs, Flyway migrations, PostgreSQL via Docker, must-include ranking rules, and an OpenAI-compatible plan client.",
     overview:
-      "FocusFlow AI is a structured way to practice enterprise Java while building something useful: users manage tasks, then generate a daily plan from active work given available time. Milestone 1 delivers the backend API—auth, tasks, plans, and AI generation—without a frontend yet. The design emphasizes layered packages, testability, and clear boundaries between security, persistence, and provider calls.",
+      "FocusFlow AI is a structured way to practice enterprise Java while building something useful: users manage tasks in a React SPA, then generate a ranked daily plan from plannable work given available focus minutes. The backend exposes session-authenticated REST APIs; the frontend uses TanStack Query with a Vite dev proxy for cookie-aware calls. Milestone 1.0.2 added plan delete, must-include ranking (in-progress and due/overdue tasks always appear), leftover-budget validation, and persisted shortfall warnings—so the product is more than a backend-only prototype.",
     problem:
-      "Turning a backlog into a realistic daily schedule is tedious when estimates, priorities, and available minutes do not line up. I also wanted hands-on experience with Spring Security sessions, JPA scoping by owner, and integrating an external LLM without letting provider details leak through every service.",
+      "Turning a backlog into a realistic daily schedule is tedious when estimates, priorities, and available minutes do not line up—and fluent LLM output can omit work that must carry over. I also wanted hands-on experience with Spring Security sessions, JPA scoping by owner, Flyway-managed schema, and integrating an external LLM without letting provider details leak through every service.",
     approach:
-      "Spring Boot on Java 21 with Gradle, PostgreSQL in Docker, and Hibernate schema updates for local dev. Features are split into `auth`, `user`, `security`, `task`, `plan`, `ai`, and `common/error`. Register/login establish a session cookie; state-changing routes require CSRF cookie plus header. Tasks and plans are always queried by owner id. `DailyPlanAiClient` abstracts the provider; `OpenAiDailyPlanClient` implements the OpenAI-compatible adapter. ArchUnit enforces layering in tests; Testcontainers covers selected integration paths.",
+      "Spring Boot on Java 21 with Gradle, PostgreSQL in Docker, and Flyway migrations (`V1__baseline.sql`) with Hibernate validate in tests. Features split across `auth`, `user`, `security`, `task`, `plan`, `ai`, and `common/error`. Register/login establish a session cookie; mutating routes require CSRF cookie plus header. Tasks and plans are always queried by owner id. `DailyPlanAiClient` abstracts the provider; `OpenAiDailyPlanClient` implements the OpenAI-compatible adapter. Generation loads plannable tasks, sends ranking rules in the prompt, validates must-include blocks and leftover budget, and persists `availableMinutes` plus structured shortfall warnings. The React frontend adds dashboard task management, plan generation, plan history with pagination, and plan detail with delete confirmation. ArchUnit enforces layering; Testcontainers covers selected integration paths.",
     features: [
+      "Full-stack app: Spring Boot REST API plus React, TypeScript, and Vite SPA with TanStack Query",
       "REST API: register, login, logout, session me; full task CRUD scoped to the current user",
-      "POST `/api/daily-plans/generate` builds a plan from active tasks and available minutes",
+      "POST `/api/daily-plans/generate` with explicit `planDate`, must-include ranking, and leftover validation",
+      "Plan history and detail views; owner-scoped hard delete with confirmation dialog",
       "Spring Security session cookies with CSRF protection on mutating requests",
-      "JPA entities and services with owner-scoped repositories",
-      "OpenAI-compatible daily plan generation with mockable `DailyPlanAiClient`",
-      "Consistent error mapping: 400 validation, 401 unauthenticated, 404 not found, 502 AI provider failures",
+      "JPA entities and owner-scoped repositories; Flyway-managed PostgreSQL schema",
+      "OpenAI-compatible daily plan generation with mockable `DailyPlanAiClient` and 502 on provider failure",
+      "Persisted shortfall warnings when must-include estimates exceed available minutes",
       "Docker Compose for local PostgreSQL; `.env.example` for datasource and provider keys",
-      "82 passing backend tests including ArchUnit layered architecture checks (Milestone 1 verification)",
+      "Automated backend tests including ArchUnit layered architecture and Testcontainers integration",
     ],
     results:
-      "Milestone 1 backend is verified: automated tests pass and manual HTTP checks cover auth, tasks, plan generation, and provider failure handling (502 without partial persistence). The main learning outcomes were session security, CSRF in a cookie-based API, JPA ownership patterns, and keeping AI behind a narrow client interface. Milestone 2 will add a React frontend; screenshots, demos, and benchmark-style metrics are deferred to a portfolio enrichment pass.",
+      "The shipped stack covers auth, tasks, plan generation, plan history, and plan delete end-to-end through the browser. Automated tests pass and manual checks cover CSRF-aware mutations, owner isolation, provider failure handling without partial persistence, and shortfall warnings on overloaded days. The main learning outcomes were session security in a cookie-based SPA, keeping AI behind a narrow client interface, and separating model ranking from backend validation so must-include work cannot silently disappear. Later roadmap milestones (clock-scheduled blocks, progress actuals, multi-day horizon) are intentionally out of this portfolio scope.",
+    evidence: [
+      {
+        src: "/images/focusflow-ai-1.png",
+        alt: "FocusFlow dashboard with task list and daily plan generation panel",
+        caption:
+          "Dashboard: task list beside generate-plan controls and today's plan summary.",
+      },
+      {
+        src: "/images/focusflow-ai-2.png",
+        alt: "FocusFlow plan history page listing saved daily plans",
+        caption:
+          "Plan history: paginated list of saved daily plans with summary metadata.",
+      },
+    ],
     repoUrl: "https://github.com/xiashuidaolaoshuren/java_project",
     techStack: [
       "Java",
       "Spring Boot",
       "PostgreSQL",
+      "Flyway",
       "Docker",
+      "React",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
       "Gradle",
       "JUnit",
       "OpenAI API",
     ],
   },
 ];
+
+  const displayOrder: ProjectItem["id"][] = [
+    "llm-hallucination-fyp",
+    "agentic-ai-news-agent",
+    "gta-v-alpr",
+    "allergy-guard",
+    "hand-gesture-music-controller",
+    "automatic-chord-recognition",
+    "focusflow-ai",
+    "personal-webpage",
+  ];
+
+  return displayOrder.map(
+    (id) => projects.find((project) => project.id === id)!,
+  );
+})();
 
 export function getProjectById(id: string): ProjectItem | undefined {
   return PROJECTS.find((p) => p.id === id);
